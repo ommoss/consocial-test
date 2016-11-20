@@ -9,10 +9,14 @@ import Tournament from './Tournament.jsx';
 class Main extends React.Component {
     constructor(props){
       super(props);
+      this.state = {site: <GoogleMap />};
+
     }
 
 
    render() {
+
+
       return (
       <div>
         <Col xs={4} md={4}>
@@ -20,7 +24,7 @@ class Main extends React.Component {
         </Col>
         <div>
         <Col id = "map" xs={8} md={8}>
-          <GoogleMap />
+          {this.state.site}
         </Col>
 
         </div>

@@ -21,7 +21,7 @@ class Nav extends React.Component {
 
       <Row>
         <Col xs={6} md={6}>
-        <h1>Consocial</h1>
+        <h1>Consociala</h1>
         </Col>
         <Col xs={6} md={6}>
           <ButtonToolbar className = "navRight">
