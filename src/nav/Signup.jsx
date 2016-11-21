@@ -31,6 +31,8 @@ import Button from 'react-bootstrap/lib/Button';
               <FormGroup controlId = "signup" >
                 <ControlLabel>Username</ControlLabel>
                 <FormControl type = "text" />
+                <ControlLabel>Email</ControlLabel>
+                <FormControl type = "text" />
                 <ControlLabel>Password</ControlLabel>
                 <FormControl type = "password" />
                 <ControlLabel>Password Confirm</ControlLabel>

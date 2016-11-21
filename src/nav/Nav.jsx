@@ -25,7 +25,7 @@ class Nav extends React.Component {
         <Col xs={6} md={6}>
           <ButtonToolbar className = "navRight">
             <ButtonGroup>
-                <Button>Create tournament</Button>
+                <Button onClick={this.props.createTourn}>Create tournament</Button>
                 <Button>Find tournament</Button>
 
                 <Login />

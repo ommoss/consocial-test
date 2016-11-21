@@ -25,7 +25,7 @@ class Main extends React.Component {
         </Col>
         <div>
         <Col id = "map" xs={8} md={8}>
-            {this.props.data.two}
+            {this.props.data.one}
         </Col>
 
         </div>
