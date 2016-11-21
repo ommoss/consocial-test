@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
 
- class Login extends React.Component {
+ class Signup extends React.Component {
   constructor(props){
     super(props);
     this.state = {}
@@ -16,12 +16,7 @@ import Button from 'react-bootstrap/lib/Button';
     let close = () => this.setState({ show: false});
     return(
       <div>
-
-        <Button
-          onClick={() => this.setState({ show: true})}
-        >
-          Login
-        </Button>
+        <Button onClick={() => this.setState({ show: true})}>Sign Up</Button>
 
         <Modal
           show={this.state.show}
@@ -29,15 +24,18 @@ import Button from 'react-bootstrap/lib/Button';
           container={this}
         >
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">Enter Your Credentials</Modal.Title>
+            <Modal.Title id="contained-modal-title">Sign up here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form id = "login">
-              <FormGroup controlId = "login" >
+            <form id = "signup">
+              <FormGroup controlId = "signup" >
                 <ControlLabel>Username</ControlLabel>
                 <FormControl type = "text" />
                 <ControlLabel>Password</ControlLabel>
                 <FormControl type = "password" />
+                <ControlLabel>Password Confirm</ControlLabel>
+                <FormControl type = "password" />
+
               </FormGroup>
             </form>
           </Modal.Body>
@@ -51,4 +49,4 @@ import Button from 'react-bootstrap/lib/Button';
   }
 }
 
-export default Login;
+export default Signup;

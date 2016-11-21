@@ -6,6 +6,7 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Login from './Login.jsx';
+import Signup from './Signup.jsx';
 
 
 class Nav extends React.Component {
@@ -26,9 +27,9 @@ class Nav extends React.Component {
             <ButtonGroup>
                 <Button>Create tournament</Button>
                 <Button>Find tournament</Button>
-              </ButtonGroup>
-              <ButtonGroup>
+
                 <Login />
+                <Signup />
               </ButtonGroup>
           </ButtonToolbar>
         </Col>

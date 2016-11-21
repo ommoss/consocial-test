@@ -10,7 +10,7 @@ class SideBar extends React.Component {
 
 
    render() {
-
+    console.log(this.props.data);
       return (
         <div className="sidebar-container">
         <h1>Tournaments near you!</h1>

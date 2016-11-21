@@ -6,10 +6,11 @@ import Col from 'react-bootstrap/lib/Col';
 import Tournament from './Tournament.jsx';
 
 
+
 class Main extends React.Component {
     constructor(props){
       super(props);
-      this.state = {site: <GoogleMap />};
+
 
     }
 
@@ -24,7 +25,7 @@ class Main extends React.Component {
         </Col>
         <div>
         <Col id = "map" xs={8} md={8}>
-          {this.state.site}
+            {this.props.data.two}
         </Col>
 
         </div>
