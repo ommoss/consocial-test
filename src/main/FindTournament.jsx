@@ -1,21 +1,16 @@
- import React, {Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import GoogleMap from './GoogleMap.jsx';
 import SideBar from './SideBar.jsx';
 import Col from 'react-bootstrap/lib/Col';
 import Tournament from './Tournament.jsx';
-import Row from 'react-bootstrap/lib/Row'
-import GoogleMap from './GoogleMap.jsx';
+import Row from 'react-bootstrap/lib/Row';
 
 
 class FindTournament extends React.Component {
     constructor(props){
       super(props);
-
-
     }
-
-
    render() {
 
 

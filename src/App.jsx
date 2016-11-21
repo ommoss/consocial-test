@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Nav from './nav/Nav.jsx';
 import Main from './main/Main.jsx';
-
+import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 
@@ -28,7 +28,7 @@ class App extends React.Component {
 }
 
 findTourn(){
-  this.setState({data: {one: <FindTournament />}});
+  this.setState({data: {one: <FindTournament data = {this.state.data}/>}});
 }
 
 createTourn(){
