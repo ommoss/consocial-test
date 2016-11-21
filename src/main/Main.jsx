@@ -26,7 +26,7 @@ class Main extends React.Component {
           </Col>
             <Col xs={8} md={8}>
           <div>
-            <GoogleMap />
+            {this.props.data.one}
           </div>
             </Col>
         </Row>
