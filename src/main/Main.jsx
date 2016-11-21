@@ -4,7 +4,9 @@ import GoogleMap from './GoogleMap.jsx';
 import SideBar from './SideBar.jsx';
 import Col from 'react-bootstrap/lib/Col';
 import Tournament from './Tournament.jsx';
-import Row from 'react-bootstrap/lib/Row'
+import Row from 'react-bootstrap/lib/Row';
+import Find from './Find.jsx';
+import Create from './Create.jsx';
 
 
 class Main extends React.Component {
@@ -22,12 +24,12 @@ class Main extends React.Component {
       <div>
 
         <Row>
-          <Col xs={4} md={4}>
-            <SideBar data={this.props.data}/>
+          <Col xs={6} md={6}>
+            <Find />
           </Col>
-            <Col xs={8} md={8}>
+            <Col xs={6} md={6}>
           <div>
-            {this.props.data.one}
+            <Create />
           </div>
             </Col>
         </Row>

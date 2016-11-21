@@ -10,7 +10,7 @@ class App extends React.Component {
     constructor(props){
       super(props);
       this.createTourn = this.createTourn.bind(this);
-      //this.socket = new WebSocket("ws://localhost:4000");
+      this.socket = new WebSocket("ws://localhost:4000");
         this.state = {
           data: {
             tournamentName: "MarioCart Special",
