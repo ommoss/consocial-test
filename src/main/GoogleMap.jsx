@@ -14,8 +14,14 @@ class GoogleMap extends React.Component {
   render() {
     return (
       <Map
+        containerStyle = {{
+          position: 'fixed',
+          width: '100vw',
+          height: '100vh'
+        }}
         google={window.google}
-        zoom={14}>
+        zoom={14}
+        centerAroundCurrentLocation = {true}>
         <InfoWindow
           onClose={this.onInfoWindowClose}>
             <div>
