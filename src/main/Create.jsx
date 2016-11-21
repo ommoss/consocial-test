@@ -13,7 +13,7 @@ class Create extends React.Component {
     return (
      <div>
         <h1>Create for tournament</h1>
-        <button>Click Here</button>
+        <button onClick={this.props.createTourn}>Click Here</button>
      </div>
     );
   }

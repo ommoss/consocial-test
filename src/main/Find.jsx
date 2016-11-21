@@ -11,9 +11,9 @@ class Find extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Find for tournament</h1>
-        <button>Find</button>
+      <div id="findtourn">
+        <h1>Find a tournament</h1>
+        <button onClick={this.props.findTourn}>Find</button>
      </div>
     );
   }
