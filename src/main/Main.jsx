@@ -1,4 +1,4 @@
- import React, {Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import GoogleMap from './GoogleMap.jsx';
 import SideBar from './SideBar.jsx';
