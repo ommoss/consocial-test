@@ -13,7 +13,8 @@ class Create extends React.Component {
     return (
       <div id="createTourn">
         <div className="inner1div">
-          <h3>To create a tournament</h3>
+          <h3>Create a tournament</h3>
+          <h5> Host your friends or meet new ones</h5>
           <h1 className="inner1" onClick={this.props.createTourn}>Start Here</h1>
         </div>
       </div>

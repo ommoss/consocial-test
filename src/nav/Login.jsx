@@ -14,7 +14,6 @@ import Button from 'react-bootstrap/lib/Button';
     this.handlePassWordChange = this.handlePassWordChange.bind(this);
     this.state = {
       username: "",
-      email: "",
       password: ""
     }
   }
@@ -29,6 +28,7 @@ import Button from 'react-bootstrap/lib/Button';
 
   handlePassWordChange(event){
     this.setState({password: event.target.value})
+    console.log(this.state.password);
   }
 
 
@@ -56,9 +56,9 @@ import Button from 'react-bootstrap/lib/Button';
             <form id = "login" onSubmit={this.loginCheck}>
               <FormGroup controlId = "login" >
                 <ControlLabel>Username</ControlLabel>
-                <FormControl type = "text" value={this.state.username} onKeyDown={this.loginCheck} onChange={this.handleUserNameChange}/>
+                <FormControl id="userName" type = "text" value={this.state.username} onKeyDown={this.loginCheck} onChange={this.handleUserNameChange}/>
                 <ControlLabel>Password</ControlLabel>
-                <FormControl type = "password" value={this.state.password} onChange={this.handlePassWordChange}/>
+                <FormControl id="password" type = "password" value={this.state.password} onChange={this.handlePassWordChange}/>
               </FormGroup>
             </form>
           </Modal.Body>
