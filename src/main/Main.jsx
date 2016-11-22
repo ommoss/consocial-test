@@ -19,10 +19,10 @@ class Main extends React.Component {
       <div>
         <div id="fullMain">
           <Row>
-            <Col className = 'center' xs={6} md={6}>
+            <Col className = 'left' xs={6} md={6} >
               <Find findTourn={this.props.findTourn} />
             </Col>
-            <Col className = 'center' xs={6} md={6}>
+            <Col className = 'right' xs={6} md={6}>
               <div>
                 <Create createTourn={this.props.createTourn} />
               </div>

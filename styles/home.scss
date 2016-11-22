@@ -1,6 +1,4 @@
-html {
-  margin: 0;
-}
+
 
 // NAVBAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -33,23 +31,36 @@ nav h1 {
 }
 
 
-.center {
+.left {
   text-align: center;
+  margin:0;
+  padding:0;
+  // background-image: url('./gamepad.jpg');
 }
+
+.right {
+  text-align: center;
+  margin:0;
+  padding:0;
+}
+
+
+// MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #findtourn {
 
   height: 800px;
   position: relative;
   background-color: #f2fdff;
-  margin-right: 0px
+  padding: 0px;
+  //background-image: url('gamepad.jpg');
 }
 
 #createTourn {
   height: 800px;
   position: relative;
   background-color: #fff8f2;
-  margin-left: 0px;
+  padding: 0px;
 }
 
 .innerdiv{
