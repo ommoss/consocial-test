@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint src",
     "postinstall": "webpack -p",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -52,8 +52,10 @@
     "babel-preset-react": "6.11.1",
     "babel-preset-stage-0": "6.5.0",
     "css-loader": "0.23.1",
+    "dotenv": "2.0.0",
     "fs": "0.0.1-security",
     "google-maps-react": "^1.0.19",
+    "knex": "^0.12.6",
     "node-sass": "3.8.0",
     "pg": "6.1.0",
     "react": "15.2.1",
