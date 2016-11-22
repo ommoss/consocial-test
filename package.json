@@ -54,6 +54,7 @@
     "css-loader": "0.23.1",
     "fs": "0.0.1-security",
     "google-maps-react": "^1.0.19",
+    "knex": "0.12.6",
     "node-sass": "3.8.0",
     "pg": "6.1.0",
     "react": "15.2.1",
