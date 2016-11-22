@@ -37,7 +37,7 @@ createTourn(){
 }
 componentDidMount(){
   pg.defaults.ssl = true;
-  pg.connect(process.env.DATABASE_URL, function(err, client) {
+  pg.connect(process.env.postgresql-metric-67809, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
 
