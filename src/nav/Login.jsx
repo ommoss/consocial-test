@@ -9,8 +9,29 @@ import Button from 'react-bootstrap/lib/Button';
  class Login extends React.Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.loginCheck = this.loginCheck.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handlePassWordChange = this.handlePassWordChange.bind(this);
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    }
   }
+
+  loginCheck(event){
+ }
+
+  handleUserNameChange(event){
+    this.setState({username: event.target.value})
+    console.log(this.state.username);
+  }
+
+  handlePassWordChange(event){
+    this.setState({password: event.target.value})
+  }
+
+
 
   render() {
     let close = () => this.setState({ show: false});
@@ -32,12 +53,12 @@ import Button from 'react-bootstrap/lib/Button';
             <Modal.Title id="contained-modal-title">Enter Your Credentials</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form id = "login">
+            <form id = "login" onSubmit={this.loginCheck}>
               <FormGroup controlId = "login" >
                 <ControlLabel>Username</ControlLabel>
-                <FormControl type = "text" />
+                <FormControl type = "text" value={this.state.username} onKeyDown={this.loginCheck} onChange={this.handleUserNameChange}/>
                 <ControlLabel>Password</ControlLabel>
-                <FormControl type = "password" />
+                <FormControl type = "password" value={this.state.password} onChange={this.handlePassWordChange}/>
               </FormGroup>
             </form>
           </Modal.Body>
