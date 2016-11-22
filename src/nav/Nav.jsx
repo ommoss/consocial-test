@@ -19,10 +19,12 @@ class Nav extends React.Component {
   render() {
     return(
       <Row id = "navBar">
-        <Col xs={6} md={6}>
-        <h1>Consocial</h1>
+        <Col xs={1} md={1}>
         </Col>
-        <Col xs={6} md={6}>
+        <Col xs={5} md={5}>
+        <h1 onClick={this.props.backHome}>Consocial</h1>
+        </Col>
+        <Col xs={5} md={5}>
           <ButtonToolbar className = "navRight">
             <ButtonGroup>
                 <Login />

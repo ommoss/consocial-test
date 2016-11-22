@@ -11,10 +11,12 @@ class Create extends React.Component {
 
   render() {
     return (
-     <div>
-        <h1>Create for tournament</h1>
-        <button onClick={this.props.createTourn}>Click Here</button>
-     </div>
+      <div id="createTourn">
+        <div className="inner1div">
+          <h3>To create a tournament</h3>
+          <h1 className="inner1" onClick={this.props.createTourn}>Start Here</h1>
+        </div>
+      </div>
     );
   }
 }

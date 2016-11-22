@@ -9,7 +9,7 @@ class Tournament extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className="tournInput">
           <h1> Create Your Own Tournament Here </h1>
             <formControl>
               <h3>Tournament Name</h3>
@@ -26,7 +26,9 @@ class Tournament extends React.Component {
               <input type="text" name="time"></input>
               <h3>Date</h3>
               <input type="text" name="date"></input>
-              <h3></h3>
+              <h3>Extra Information</h3>
+              <input type="text" name="date"></input>
+              <br/>
               <button type="submit" className="btn btn-default">Create Tournament</button>
 
             </formControl>

@@ -1,4 +1,14 @@
-nav h1 { margin: 0; padding: 0;}
+html {
+  margin: 0;
+}
+
+// NAVBAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+nav h1 {
+  margin-left: 0;
+  padding: 0;
+
+}
 
 .navRight{
   float: right;
@@ -6,13 +16,9 @@ nav h1 { margin: 0; padding: 0;}
   margin-right: 20px;
 
 }
+
 #navBar {
   border-bottom: 1px solid black;
-}
-
-.well {
-  background-color: white;
-  border: 1px solid black;
 }
 
 .btn-default:hover {
@@ -20,6 +26,80 @@ nav h1 { margin: 0; padding: 0;}
     background-color: #ffa31a;
     border-color: white;
 }
-.center {
-  text-algin: center;
+
+.well {
+  background-color: white;
+  border: 1px solid black;
 }
+
+
+.center {
+  text-align: center;
+}
+
+#findtourn {
+
+  height: 800px;
+  position: relative;
+  background-color: #f2fdff;
+  margin-right: 0px
+}
+
+#createTourn {
+  height: 800px;
+  position: relative;
+  background-color: #fff8f2;
+  margin-left: 0px;
+}
+
+.innerdiv{
+  position: absolute;
+  left: 30%;
+  bottom: 40%;
+
+}
+
+.inner {
+  background-color:white;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+
+}
+
+.inner:hover{
+  background-color:#ffa31a;
+  color: white;
+  border: 1px solid white;
+}
+
+.inner1div{
+  position:absolute;
+  right:30%;
+  bottom:40%;
+
+}
+
+.inner1 {
+  background-color:white;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+
+}
+
+.inner1:hover{
+  background-color:#ffa31a;
+  color: white;
+  border: 1px solid white;
+}
+
+// TOURNAMENT PAGE!!!!!!!!!!!!!!!!!
+ .tournInput {
+  text-align: center;
+
+ }
