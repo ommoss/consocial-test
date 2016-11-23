@@ -29,12 +29,6 @@ exports.seed = function(knex, Promise) {
         knex('games').insert({
           name: 'Super Smash Bros',
           description: 'Beat your friends'
-        }),
-        knex('tournament').insert({
-          title: 'BeatDown',
-          body: 'Hit em Hard',
-          author_id: 1,
-          game_id: 1,
         })
       ]);
     });
