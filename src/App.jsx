@@ -15,7 +15,7 @@ class App extends React.Component {
       this.backHome = this.backHome.bind(this);
       this.state = {
           data: {
-            tournament: [],
+            tournaments: [],
             tournamentName: "MarioCart Special",
             tournamentGameType: "MarioCart",
             tournamentLocation: "Garricks Head Pub",
@@ -25,9 +25,10 @@ class App extends React.Component {
             tournamentPlayerCurrent: 8,
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
           }
-
       }
+  }
 
+<<<<<<< HEAD
 }
 
 findTourn(){
@@ -64,7 +65,22 @@ componentDidMount(){
     });
   });
 }
+=======
+  findTourn(){
+    this.setState({data: {one: <FindTournament data = {this.state.data} />}});
+  }
 
+  createTourn(){
+    this.setState({data: {one: <Tournament />}});
+  }
+>>>>>>> d47b86ac44886af7ec5f296e193eb9f6f3b133c5
+
+  backHome(){
+    this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
+  }
+  componentDidMount(){
+    console.log(query);
+  }
 
    render() {
 

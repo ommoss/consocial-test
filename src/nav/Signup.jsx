@@ -9,8 +9,58 @@ import Button from 'react-bootstrap/lib/Button';
  class Signup extends React.Component {
   constructor(props){
     super(props);
-    this.state = {}
+     this.formCheck = this.formCheck.bind(this);
+    // this.loginCheck = this.loginCheck.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.close = this.close.bind(this);
+    this.state = {
+      username: "",
+      firstname: "",
+      lastname: "",
+      email: "",
+       password: "",
+      passwordconfirm: "",
+      u1: "bob",
+      p1: "bob"
+    }
   }
+
+    handleSubmit(event){
+      if(event.key === "Enter"){
+        this.formCheck();
+        console.log('register handleSubnmit')
+      }
+
+ }
+
+
+  handleChange(event){
+    if(event.target.id === "userName"){
+      this.setState({ username: event.target.value})
+      console.log(this.state.username);
+    } else if (event.target.id ==="firstName"){
+      this.setState({firstname: event.target.value});
+    } else if (event.target.id ==="email"){
+      this.setState({email: event.target.value});
+    } else if (event.target.id ==="lastName"){
+      this.setState({lastname: event.target.value});
+    } else if (event.target.id ==="password"){
+      this.setState({password: event.target.value});
+    } else if (event.target.id ==="passwordconfirm"){
+      this.setState({passwordconfirm: event.target.value});
+    }console.log(this.state)
+  }
+
+  formCheck(){
+    if(this.state.username && this.state.firstname && this.state.lastname && this.state.email && this.state.password && this.state.passwordconfirm){
+      if (this.state.password !== this.state.passwordconfirm){
+        alert('passwords do not match')
+      }else{alert('good sign in bro')}
+    } else {alert("please fill in all forms")}
+  }
+
+
 
   render() {
     let close = () => this.setState({ show: false});
@@ -27,22 +77,26 @@ import Button from 'react-bootstrap/lib/Button';
             <Modal.Title id="contained-modal-title">Sign up here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form id = "signup">
-              <FormGroup controlId = "signup" >
+            <form id = "signup" onSubmit={this.handleSubmit}>
+              <FormGroup >
                 <ControlLabel>Username</ControlLabel>
-                <FormControl type = "text" />
+                <FormControl id ="userName" type = "text" value={this.state.username} onChange={this.handleChange}/>
+                <ControlLabel>First Name</ControlLabel>
+                <FormControl type = "text" id="firstName" value={this.state.firstname} onChange={this.handleChange} />
+                <ControlLabel>Last Name</ControlLabel>
+                <FormControl type = "text" id="lastName" value={this.state.lastname} onChange={this.handleChange}/>
                 <ControlLabel>Email</ControlLabel>
-                <FormControl type = "text" />
+                <FormControl type = "text" id="email" value={this.state.email} onChange={this.handleChange}/>
                 <ControlLabel>Password</ControlLabel>
-                <FormControl type = "password" />
+                <FormControl type = "password" id="password" value={this.state.password} onChange={this.handleChange}/>
                 <ControlLabel>Password Confirm</ControlLabel>
-                <FormControl type = "password" />
+                <FormControl type = "password" id="passwordconfirm" value={this.state.passwordconfirm} onChange={this.handleChange}/>
 
               </FormGroup>
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button>Submit</Button>
+            <Button onClick={this.formCheck}>Submit</Button>
             <Button onClick={close}>Close</Button>
           </Modal.Footer>
         </Modal>

@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return Promise.all([
 
         knex.schema.createTable('users', function(table) {
-            table.increments('uid').primary();
+            table.integer('uid').primary();
             table.string('username');
             table.string('password');
             table.string('first_name');
@@ -12,22 +12,24 @@ exports.up = function(knex, Promise) {
             table.timestamps();
         }),
         knex.schema.createTable('games', function(table){
-            table.increments('gid').primary();
+            table.integer('gid').primary();
+            table.string('name');
             table.string('description');
-            table.dateTime('addDate');
+            table.timestamps();
         }),
 
         knex.schema.createTable('tournament', function(table){
             table.increments('id').primary();
             table.string('title');
             table.string('body');
+            table.boolean('privte');
             table.integer('author_id')
                  .references('uid')
                  .inTable('users');
             table.integer('game_id')
                   .references('gid')
                   .inTable('games');
-            table.dateTime('postDate');
+            table.timestamps();
         })
     ])
 
@@ -36,8 +38,8 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
      return Promise.all([
         knex.schema.dropTable('users'),
-        knex.schema.dropTable('games')
-        knex.schema.dropTable('tournament'),
+        knex.schema.dropTable('games'),
+        knex.schema.dropTable('tournament')
     ])
 
 };
