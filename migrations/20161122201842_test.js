@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
             table.timestamps();
         }),
         knex.schema.createTable('games', function(table){
-            table.interval('gid').primary();
+            table.integer('gid').primary();
             table.string('name');
             table.string('description');
             table.timestamps();
@@ -22,6 +22,7 @@ exports.up = function(knex, Promise) {
             table.increments('id').primary();
             table.string('title');
             table.string('body');
+            table.boolean('privte');
             table.integer('author_id')
                  .references('uid')
                  .inTable('users');
