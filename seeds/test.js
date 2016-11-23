@@ -6,6 +6,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('users').insert({
+          uid: 1,
           username: 'bob',
           password: 'bob',
           first_name: 'bob',
@@ -13,6 +14,7 @@ exports.seed = function(knex, Promise) {
           email: 'bob@example.com'
         }),
         knex('users').insert({
+          uid: 2,
           username: 'bill',
           password: 'science',
           first_name: 'bill',
@@ -20,6 +22,7 @@ exports.seed = function(knex, Promise) {
           email: 'scienceguy@example.com'
         }),
         knex('users').insert({
+          uid: 3,
           username: 'ross',
           password: 'paint',
           first_name: 'Bob',
@@ -27,8 +30,16 @@ exports.seed = function(knex, Promise) {
           email: 'paints@example.com'
         }),
         knex('games').insert({
+          gid: 1,
           name: 'Super Smash Bros',
           description: 'Beat your friends'
+        }),
+        knex('tournament'),insert({
+          id: 1,
+          title: 'Beat Down',
+          body: 'beat your friends up!',
+          author_id: 1,
+          game_id: 1
         })
       ]);
     });

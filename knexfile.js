@@ -3,7 +3,7 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'banana'
+      database: 'test'
     },
     debug: true
   },

@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return Promise.all([
 
         knex.schema.createTable('users', function(table) {
-            table.increments('uid').primary();
+            table.integer('uid').primary();
             table.string('username');
             table.string('password');
             table.string('first_name');
@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
             table.timestamps();
         }),
         knex.schema.createTable('games', function(table){
-            table.increments('gid').primary();
+            table.interval('gid').primary();
             table.string('name');
             table.string('description');
             table.timestamps();
