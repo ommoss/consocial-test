@@ -13,8 +13,9 @@ exports.up = function(knex, Promise) {
         }),
         knex.schema.createTable('games', function(table){
             table.increments('gid').primary();
+            table.string('name');
             table.string('description');
-            table.dateTime('addDate');
+            table.timestamps();
         }),
 
         knex.schema.createTable('tournament', function(table){
@@ -27,7 +28,7 @@ exports.up = function(knex, Promise) {
             table.integer('game_id')
                   .references('gid')
                   .inTable('games');
-            table.dateTime('postDate');
+            table.timestamps();
         })
     ])
 

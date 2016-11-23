@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('users').del()
+  return knex('users').del().knex('tournament').del().knex('games').del()
     .then(function () {
       return Promise.all([
         // Inserts seed entries
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         knex('users').insert({
           uid: 2,
           username: 'bill',
-          password: 'scien',
+          password: 'science',
           first_name: 'bill',
           last_name: 'nye',
           email: 'scienceguy@example.com'
@@ -28,6 +28,16 @@ exports.seed = function(knex, Promise) {
           last_name: 'Ross',
           email: 'paints@example.com'
         }),
+        knex('games').insert({
+          name: 'Super Smash Bros',
+          description: 'Beat your friends'
+        }),
+        knex('tournament').insert({
+          title: 'BeatDown',
+          body: 'Hit em Hard',
+          author_id: 1,
+          game_id: 1,
+        })
       ]);
     });
 };
