@@ -12,26 +12,27 @@ import Button from 'react-bootstrap/lib/Button';
      this.formCheck = this.formCheck.bind(this);
     // this.loginCheck = this.loginCheck.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // this.close = this.close.bind(this);
     this.state = {
       username: "",
-      password: "",
       firstname: "",
       lastname: "",
       email: "",
+       password: "",
+      passwordconfirm: "",
       u1: "bob",
       p1: "bob"
     }
   }
 
- //    handleSubmit(event){
- //      if(event.key === "Enter"){
- //        this.loginCheck();
- //        console.log('register handleSubnmit')
- //      }
+    handleSubmit(event){
+      if(event.key === "Enter"){
+        this.formCheck();
+        console.log('register handleSubnmit')
+      }
 
- // }
+ }
 
 
   handleChange(event){
@@ -46,13 +47,17 @@ import Button from 'react-bootstrap/lib/Button';
       this.setState({lastname: event.target.value});
     } else if (event.target.id ==="password"){
       this.setState({password: event.target.value});
-    }
+    } else if (event.target.id ==="passwordconfirm"){
+      this.setState({passwordconfirm: event.target.value});
+    }console.log(this.state)
   }
 
   formCheck(){
-    if(this.state.username && this.state.firstname && this.state.lastname && this.state.email && this.state.password){
-
-    }else {alert("please fill in all forms")}
+    if(this.state.username && this.state.firstname && this.state.lastname && this.state.email && this.state.password && this.state.passwordconfirm){
+      if (this.state.password !== this.state.passwordconfirm){
+        alert('passwords do not match')
+      }else{alert('good sign in bro')}
+    } else {alert("please fill in all forms")}
   }
 
 
@@ -72,7 +77,7 @@ import Button from 'react-bootstrap/lib/Button';
             <Modal.Title id="contained-modal-title">Sign up here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form id = "signup">
+            <form id = "signup" onSubmit={this.handleSubmit}>
               <FormGroup >
                 <ControlLabel>Username</ControlLabel>
                 <FormControl id ="userName" type = "text" value={this.state.username} onChange={this.handleChange}/>
@@ -85,7 +90,7 @@ import Button from 'react-bootstrap/lib/Button';
                 <ControlLabel>Password</ControlLabel>
                 <FormControl type = "password" id="password" value={this.state.password} onChange={this.handleChange}/>
                 <ControlLabel>Password Confirm</ControlLabel>
-                <FormControl type = "password" id="password" value={this.state.password} onChange={this.handleChange}/>
+                <FormControl type = "password" id="passwordconfirm" value={this.state.passwordconfirm} onChange={this.handleChange}/>
 
               </FormGroup>
             </form>
