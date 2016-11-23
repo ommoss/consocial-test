@@ -57,7 +57,9 @@ import Button from 'react-bootstrap/lib/Button';
       if (this.state.password !== this.state.passwordconfirm){
         alert('passwords do not match')
       }else{alert('good sign in bro')}
-    } else {alert("please fill in all forms")}
+    } else if (this.state.password.length < 8){
+      alert("password has to be 8 characters or more")
+    }else {alert("please fill in all forms")}
   }
 
 
