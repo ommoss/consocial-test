@@ -16,30 +16,89 @@ class Tournament extends React.Component {
 
         <div className="tournInput">
           <Row>
-          <Col xs={3} md={3}>
+          <Col xs={1} md={1}>
           <button className="btn btn-default">Home</button>
           </Col>
-            <Col  xs={6} md={6}>
+            <Col  xs={10} md={10}>
             <h1> Create Your Own Tournament Here </h1>
               <formControl>
-                <h3>Tournament Name</h3>
-                <input type="text" name="tournName" className="input-lg col-md-12"></input>
-                <h3>Game Type</h3>
-                <input type="text" name="tournGame" className="input-lg col-md-12"></input>
-                <h3>Start Time</h3>
-                <input type="text" name="tournStart" className="input-lg col-md-12"></input>
-                <h3>Max Players</h3>
-                <input type="text" name="maxPlayers" className="input-lg col-md-12"></input>
-                <h3>Location</h3>
-                <input type="text" name="location" className="input-lg col-md-12"></input>
+                <div className="container">
+                <Col  xs={4} md={4}>
+                  <h3>Tournament Name</h3>
+                </Col>
+
+                <Col  xs={8} md={8}>
+                  <input type="text" name="tournName" className="input-lg col-md-12"></input>
+                </Col>
+                </div>
+                <div className="container">
+                <Col  xs={4} md={4}>
+                  <h3>Game Type</h3>
+                </Col>
+
+                <Col  xs={8} md={8}>
+                  <input type="text" name="tournGame" className="input-lg col-md-12"></input>
+                </Col>
+                </div>
+                <div className="container">
+                <Col  xs={4} md={4}>
+                  <h3>Start Time</h3>
+                </Col>
+                <Col  xs={8} md={8}>
+                  <input type="text" name="tournStart" className="input-lg col-md-12"></input>
+                </Col>
+                </div>
+
+                <div className="container">
+                <Col  xs={4} md={4}>
+                  <h3>Max Players</h3>
+                </Col>
+
+                <Col  xs={8} md={8}>
+                  <input type="text" name="maxPlayers" className="input-lg col-md-12"></input>
+                </Col>
+                </div>
+
+                <div className="container">
+                  <Col  xs={4} md={4}>
+                    <h3>Location</h3>
+                  </Col>
+                  <Col  xs={8} md={8}>
+                    <input type="text" name="location" className="input-lg col-md-12"></input>
+                  </Col>
+                </div>
+
+                <div className="container">
+                <Col  xs={4} md={4}>
                 <h3>Time</h3>
+                 </Col>
+                <Col  xs={8} md={8}>
                 <input type="text" name="time" className="input-lg col-md-12"></input>
-                <h3>Date</h3>
-                <input type="text" name="date" className="input-lg col-md-12"></input>
-                <h3>Extra Information</h3>
-                <textarea rows="4" cols="50" name="date" className="input-lg" col-md-12></textarea>
+                 </Col>
+                 </div>
+
+                <div className="container">
+                  <Col  xs={4} md={4}>
+                    <h3>Date</h3>
+                  </Col>
+                  <Col  xs={8} md={8}>
+                    <input type="text" name="date" className="input-lg col-md-12"></input>
+                  </Col>
+                 </div>
+
+
+                <div className="container">
+                  <Col  xs={4} md={4}>
+                    <h3>Extra Information</h3>
+                  </Col>
+                  <Col  xs={8} md={8}>
+                    <textarea rows="4" cols="50" name="date" className="input-lg col-md-12"></textarea>
+                  </Col>
+                </div>
                 <br/>
+                 <Col xs={12} md={12}>
                 <button type="submit" className="btn btn-default">Create Tournament</button>
+                 </Col>
 
               </formControl>
               </Col>
