@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
           name: 'Super Smash Bros',
           description: 'Beat your friends'
         }),
-        knex('tournament'),insert({
+        knex('tournament').insert({
           id: 1,
           title: 'Beat Down',
           body: 'beat your friends up!',

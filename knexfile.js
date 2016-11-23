@@ -2,9 +2,7 @@ module.exports = {
 
   development: {
     client: 'postgresql',
-    connection: {
-      database: 'test'
-    },
+    connection: 'postgres://vagrant:vagrant@localhost:5432/test',
     debug: true
   },
 

@@ -6,6 +6,7 @@ import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 
+
 class App extends React.Component {
     constructor(props){
       super(props);
@@ -14,6 +15,7 @@ class App extends React.Component {
       this.backHome = this.backHome.bind(this);
       this.state = {
           data: {
+            tournaments: [],
             tournamentName: "MarioCart Special",
             tournamentGameType: "MarioCart",
             tournamentLocation: "Garricks Head Pub",
@@ -24,21 +26,22 @@ class App extends React.Component {
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
           }
       }
-}
+  }
 
-findTourn(){
-  this.setState({data: {one: <FindTournament data = {this.state.data} />}});
-}
+  findTourn(){
+    this.setState({data: {one: <FindTournament data = {this.state.data} />}});
+  }
 
-createTourn(){
-  this.setState({data: {one: <Tournament />}});
-}
+  createTourn(){
+    this.setState({data: {one: <Tournament />}});
+  }
 
-backHome(){
-  this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
-}
-componentDidMount(){
-}
+  backHome(){
+    this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
+  }
+  componentDidMount(){
+    console.log(query);
+  }
 
    render() {
 
