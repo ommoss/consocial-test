@@ -5,11 +5,6 @@ import Main from './main/Main.jsx';
 import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
-const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/test';
-pg.defaults.ssl = true;
-const client = new pg.Client(connectionString);
-client.connect();
 
 class App extends React.Component {
     constructor(props){
@@ -43,12 +38,6 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
-  console.log('Connected to postgres! Getting schemas...');
-  client
-    .query('SELECT title,body FROM tournament.tables;')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
-    });
 }
 
    render() {
