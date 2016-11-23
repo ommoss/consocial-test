@@ -1,7 +1,8 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
-var db = require('./db');
+const pg = require('pg');
+const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test'
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,

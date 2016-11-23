@@ -15,6 +15,7 @@ class App extends React.Component {
       this.backHome = this.backHome.bind(this);
       this.state = {
           data: {
+            tournament: [],
             tournamentName: "MarioCart Special",
             tournamentGameType: "MarioCart",
             tournamentLocation: "Garricks Head Pub",
@@ -41,7 +42,27 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
-
+  const results = [];
+  // Get a Postgres client from the connection pool
+  pg.connect(connectionString, (err, client, done) => {
+    // Handle connection errors
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json({success: false, data: err});
+    }
+    // SQL Query > Select Data
+    const query = client.query('SELECT * FROM tournament ORDER BY id;');
+    // Stream results back one row at a time
+    query.on('row', (row) => {
+      results.push(row);
+    });
+    // After all data is returned, close connection and return results
+    query.on('end', () => {
+      done();
+      this.setState({data:{tournament: results}})
+    });
+  });
 }
 
 

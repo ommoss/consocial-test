@@ -3,7 +3,7 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'test'
+      database: process.env.DATABASE_URL
     },
     debug: true
   },
@@ -27,7 +27,7 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'postgres://iqrkjwwmwvrzxt:fDcmWQ8KQX3YRfFZ4nEYCznJiq@ec2-54-83-44-229.compute-1.amazonaws.com:5432/d676umdlbmqm4i',
+      database: process.env.DATABASE_URL,
     },
     pool: {
       min: 2,
