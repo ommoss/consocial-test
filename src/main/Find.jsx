@@ -18,8 +18,8 @@ class Find extends React.Component {
 
         <Col className="innerdiv" sm={4} md={4}>
 
-          <h3>To find a tournament is your area</h3>
-          <h5>Join a public tournament to meet new people</h5>
+          <h1>Find a tournament</h1>
+          <h4>Join a public tournament</h4>
           <h1 className="inner" onClick={this.props.findTourn}>Start Here</h1>
         </Col>
      </Col>

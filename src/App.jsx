@@ -5,6 +5,7 @@ import Main from './main/Main.jsx';
 import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
+import Footer from './footer/Footer.jsx';
 
 
 class App extends React.Component {
@@ -50,8 +51,11 @@ class App extends React.Component {
         <div>
           <Nav backHome={this.backHome} />
         </div>
-        <div>
+        <div id="maindiv">
           {this.state.data.one}
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     );
