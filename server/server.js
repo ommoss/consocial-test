@@ -1,19 +1,25 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack.config');
-var pg = require('pg');
+var express = require('express');
+const router = express.Router;
+var proxy = require('proxy-middleware');
+var url = require('url');
+const pg = require('pg');
 const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
 const client = new pg.Client(connectionString);
 
-function read(){
+const app = express();
+const results = []
+
+function postTournamentData(){
   client.connect();
-  const results = []
   const query = client.query('SELECT * FROM users;');
   query.on('row', (row) => {
       results.push(row);
     });
   query.on('end', () => {
-    console.log(results);
+    console.log('postTournamentData');
     client.end(); });
 }
 
@@ -29,5 +35,9 @@ new WebpackDevServer(webpack(config), {
       console.log(err);
     }
     console.log('Running at http://0.0.0.0:5000');
-    read();
-  });
+    postTournamentData();
+});
+app.post("/tournaments", (req, res) => {
+  console.log('hello');
+  res.send({test: 'test'});
+});

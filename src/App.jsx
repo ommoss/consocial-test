@@ -5,7 +5,7 @@ import Main from './main/Main.jsx';
 import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
-
+import { Router, Route, Link } from 'react-router'
 
 class App extends React.Component {
     constructor(props){
@@ -13,6 +13,7 @@ class App extends React.Component {
       this.findTourn = this.findTourn.bind(this);
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
+      this.updateFromDatabase = this.updateFromDatabase.bind(this);
       this.state = {
           data: {
             tournaments: [],
@@ -27,12 +28,20 @@ class App extends React.Component {
           }
       }
   }
-
-<<<<<<< HEAD
+updateFromDatabase () {
+  $.ajax({
+    method: "get",
+    url: "/tournaments",
+    dataType: 'JSON'
+  }).done((response) => {
+    console.log(response.data);
+    // this.setState({data: {tournaments: response.data}});
+    //  console.log(this.state.data.tournaments);
+  });
 }
-
 findTourn(){
   this.setState({data: {one: <FindTournament data = {this.state.data} />}});
+  this.updateFromDatabase();
 }
 
 createTourn(){
@@ -43,45 +52,19 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
-  const results = [];
-  // Get a Postgres client from the connection pool
-  pg.connect(connectionString, (err, client, done) => {
-    // Handle connection errors
-    if(err) {
-      done();
-      console.log(err);
-      return res.status(500).json({success: false, data: err});
-    }
-    // SQL Query > Select Data
-    const query = client.query('SELECT * FROM tournament ORDER BY id;');
-    // Stream results back one row at a time
-    query.on('row', (row) => {
-      results.push(row);
-    });
-    // After all data is returned, close connection and return results
-    query.on('end', () => {
-      done();
-      this.setState({data:{tournament: results}})
-    });
-  });
 }
-=======
-  findTourn(){
-    this.setState({data: {one: <FindTournament data = {this.state.data} />}});
-  }
-
-  createTourn(){
-    this.setState({data: {one: <Tournament />}});
-  }
->>>>>>> d47b86ac44886af7ec5f296e193eb9f6f3b133c5
-
-  backHome(){
-    this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
-  }
-  componentDidMount(){
-    console.log(query);
-  }
-
+    // $.ajax({
+    //   url: 'http://localhost:5000/assets',
+    //   dataType: 'json',
+    //   cache: false,
+    //   success: function(data) {
+    //     this.setState({data:{tournaments: data}});
+    //     console.log(this.state.data.tournaments);
+    //   }.bind(this),
+    //   error: function(xhr, status, err) {
+    //     console.error(this.props.url, status, err.toString());
+    //   }.bind(this)
+    // });
    render() {
 
       return (
