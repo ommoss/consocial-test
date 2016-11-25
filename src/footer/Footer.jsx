@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+
 class Footer extends React.Component {
   constructor(props){
     super(props);
@@ -8,7 +9,10 @@ class Footer extends React.Component {
 
 
 
+
   render() {
+
+
     return(
      <div id="footer">
         <h5>Hello footer</h5>
