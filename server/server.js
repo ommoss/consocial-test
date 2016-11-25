@@ -14,7 +14,8 @@ function read(){
     });
   query.on('end', () => {
     console.log(results);
-    client.end(); });
+    client.end();
+  });
 }
 
 new WebpackDevServer(webpack(config), {
