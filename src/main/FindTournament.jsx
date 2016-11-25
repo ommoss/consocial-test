@@ -15,13 +15,13 @@ class FindTournament extends React.Component {
 
 
       return (
-      <div>
+      <div className="tournDiv">
         <Row>
           <Col xs={4} md={4}>
             <SideBar data={this.props.data}/>
           </Col>
             <Col xs={8} md={8}>
-              <div>
+              <div className="mapdiv">
                 <GoogleMap />
               </div>
             </Col>

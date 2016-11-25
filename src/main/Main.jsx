@@ -20,7 +20,7 @@ class Main extends React.Component {
         <div id="fullMain">
           <Row>
             <Col className = 'left' xs={6} md={6} >
-              <img src={require('../assets/Joystick.jpg')}/>
+
               <Find findTourn={this.props.findTourn} />
             </Col>
             <Col className = 'right' xs={6} md={6}>

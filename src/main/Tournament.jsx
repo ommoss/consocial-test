@@ -49,11 +49,12 @@ handleChange(event){
 
   render() {
     return (
+      <div className="tournDiv">
 
         <div className="tournInput">
           <Row>
           <Col xs={1} md={1}>
-          <button className="btn btn-default">Home</button>
+
           </Col>
             <Col  xs={10} md={10}>
             <h1> Create Your Own Tournament Here </h1>
@@ -64,7 +65,7 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="tournName" id="tournName" value={this.state.tournName} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                  <input type="text" name="tournName" id="tournName" value={this.state.tournName} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
                 <div className="container">
@@ -73,7 +74,7 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="tournGame" id="tournGame" value={this.state.tournGame} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                  <input type="text" name="tournGame" id="tournGame" value={this.state.tournGame} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
                 <div className="container">
@@ -81,7 +82,7 @@ handleChange(event){
                   <h3>Start Time</h3>
                 </Col>
                 <Col  xs={8} md={8}>
-                  <input type="time" name="tournStart" id="tournStart" value={this.state.tournStart} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                  <input type="time" name="tournStart" id="tournStart" value={this.state.tournStart} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
 
@@ -91,7 +92,7 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                  <input type="text" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
 
@@ -100,7 +101,7 @@ handleChange(event){
                     <h3>Location</h3>
                   </Col>
                   <Col  xs={8} md={8}>
-                    <input type="text" name="location" id="location" value={this.state.location} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                    <input type="text" name="location" id="location" value={this.state.location} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                   </Col>
                 </div>
 
@@ -109,7 +110,7 @@ handleChange(event){
                 <h3>Time</h3>
                  </Col>
                 <Col  xs={8} md={8}>
-                <input type="text" name="time" id="time" value={this.state.time} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                <input type="text" name="time" id="time" value={this.state.time} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                  </Col>
                  </div>
 
@@ -118,7 +119,7 @@ handleChange(event){
                     <h3>Date</h3>
                   </Col>
                   <Col  xs={8} md={8}>
-                    <input type="date" name="date" id="date" value={this.state.date} className="input-lg col-md-12" onChange={this.handleChange}></input>
+                    <input type="date" name="date" id="date" value={this.state.date} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                   </Col>
                  </div>
 
@@ -128,7 +129,7 @@ handleChange(event){
                     <h3>Extra Information</h3>
                   </Col>
                   <Col  xs={8} md={8}>
-                    <textarea rows="4" cols="50" name="extraInfo" id="extraInfo" value={this.state.extraInfo} className="input-lg col-md-12" onChange={this.handleChange}></textarea>
+                    <textarea rows="4" cols="50" name="extraInfo" id="extraInfo" value={this.state.extraInfo} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></textarea>
                   </Col>
                 </div>
                 <br/>
@@ -139,8 +140,9 @@ handleChange(event){
               </formControl>
               </Col>
             </Row>
-
+          </div>
         </div>
+
 
 
 

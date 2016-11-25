@@ -13,10 +13,7 @@ class SideBar extends React.Component {
     console.log(this.props.data);
       return (
         <div className="sidebar-container">
-        <h1>Tournaments near you!</h1>
-
         <div className="well" id="tournament-box">
-
             <h3><span id="tournament-name" className ="tourn-info">{this.props.data.tournamentName}</span></h3>
             <hr/>
             <h4>Game Type: <span id="tournament-game-type" className ="tourn-info">{this.props.data.tournamentGameType}</span></h4>

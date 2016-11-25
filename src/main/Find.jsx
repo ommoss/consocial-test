@@ -15,12 +15,14 @@ class Find extends React.Component {
   render() {
     return (
       <Col id="findtourn" sm={12} md={12}>
-
-        <Col className="innerdiv" sm={4} md={4}>
+      <img src={require('../assets/Joystick.jpg')}/>
+        <Col sm={5} md={5}>
+        </Col>
+        <Col className="innerdiv" sm={6} md={6}>
 
           <h1>Find a tournament</h1>
           <h4>Join a public tournament</h4>
-          <h1 className="inner" onClick={this.props.findTourn}>Start Here</h1>
+          <h1 className="innerbtn" onClick={this.props.findTourn}>Start Here</h1>
         </Col>
      </Col>
     );

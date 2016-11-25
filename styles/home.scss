@@ -24,27 +24,26 @@ nav h1 {
   background-color:#14181e;
 }
 
-#loginGroup {
-  display: block;
-}
 
 .btn-default:hover {
     color: white;
     background-color: #ffa31a;
     border-color: white;
 }
+// Tounament info box
 
 .well {
   background-color: white;
   border: 1px solid black;
 }
 
+// MAIN///////////////////////////////////
 
 .left {
   text-align: center;
   margin:0;
   padding:0;
-  // background-image: url('../src/assets/Joystick.jpg');
+
 }
 
 .right {
@@ -66,7 +65,11 @@ nav h1 {
   position: relative;
   background-color: #031b42;
   padding: 0px;
-  //background-image: url('gamepad.jpg');
+
+}
+
+img {
+  height:800px
 }
 
 #createTourn {
@@ -77,19 +80,21 @@ nav h1 {
 }
 
 .innerdiv{
-  position: absolute;
-  left: 40%;
+  // position: absolute;
+  // left: 40%;
   bottom: 30%;
   text-align: right;
   color: white;
-
 }
 
-.inner {
+.innerdiv h1{
+  font-size: 2.5em
+}
+.innerbtn {
   background-color:red;
   display: inline-block;
   text-align: center;
-  padding: 10px;
+  padding: 10px 40px 10px 40px;
   border-radius: 4px;
   border: 1px solid white;
   color: white;
@@ -103,22 +108,24 @@ nav h1 {
 }
 
 .inner1div{
-  position:absolute;
-  right:55%;
+  // position:absolute;
+  // right:55%;
   bottom:30%;
   text-align: left;
   color: white;
 
+
 }
 
-.inner1 {
+.inner1btn {
   background-color:blue;
   display: inline-block;
   text-align: center;
-  padding: 10px;
+  padding: 10px 40px 10px 40px;
   border-radius: 4px;
   border: 1px solid white;
   color: white;
+
 
 }
 
@@ -131,7 +138,26 @@ nav h1 {
 // TOURNAMENT PAGE!!!!!!!!!!!!!!!!!
  .tournInput {
   text-align: center;
+  background-color: #2c2f33;
+  color: white;
 
+ }
+
+ .tournDiv{
+  height: 800px;
+  background-color: #2c2f33;
+ }
+
+input[type="text"], input[type="date"], input[type="time"], input[type="password"], textarea {
+  background-color : #d1d1d1;
+}
+
+
+
+ // Findtournament Page //////////////////////////////////////////////////////
+
+ .mapdiv{
+  height: 800px;
  }
 
  //FOOTER???????????????????????????????????????/

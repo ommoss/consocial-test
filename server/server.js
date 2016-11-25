@@ -19,7 +19,7 @@ const results = []
 
 function postTournamentData(){
   client.connect();
-  const query = client.query('SELECT * FROM zusers;');
+  const query = client.query('SELECT * FROM users;');
   query.on('row', (row) => {
       results.push(row);
     });
@@ -44,15 +44,4 @@ new WebpackDevServer(webpack(config), {
 });
 
 
-console.log('heyyyyyy');
 
-app.get("/server/tournaments", (req, res) => {
-  postTournamentData();
-  console.log('hello');
-  res.send({test: 'test'});
-});
-
-app.listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
-
-
-app.use(express.static(__dirname + 'styles'));
