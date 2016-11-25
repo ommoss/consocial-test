@@ -11,7 +11,9 @@ let done = false;
 
 function postTournamentData(){
   client.connect();
+
   const query = client.query('SELECT * FROM tournament;');
+
   query.on('row', (row) => {
       results.push(row);
     });
