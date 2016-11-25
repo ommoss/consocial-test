@@ -2,24 +2,14 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack.config');
 var express = require('express');
-const router = express.Router;
-var proxy = require('proxy-middleware');
-var url = require('url');
 const pg = require('pg');
 const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
 const client = new pg.Client(connectionString);
-
-const app = express();
-
-
-const PORT = 4000
-
-
 const results = []
 
 function postTournamentData(){
   client.connect();
-  const query = client.query('SELECT * FROM zusers;');
+  const query = client.query('SELECT * FROM tournament;');
   query.on('row', (row) => {
       results.push(row);
     });
@@ -44,15 +34,3 @@ new WebpackDevServer(webpack(config), {
 });
 
 
-console.log('heyyyyyy');
-
-app.get("/server/tournaments", (req, res) => {
-  postTournamentData();
-  console.log('hello');
-  res.send({test: 'test'});
-});
-
-app.listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
-
-
-app.use(express.static(__dirname + 'styles'));

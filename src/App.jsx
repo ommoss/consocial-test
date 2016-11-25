@@ -14,6 +14,8 @@ class App extends React.Component {
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
+      // this.socket = new WebSocket("ws://localhost:4000");
+      this.socket = new WebSocket("ws://consocial-server.herokuapps.com");
       this.state = {
           data: {
             tournaments: [],
@@ -29,15 +31,6 @@ class App extends React.Component {
       }
   }
 updateFromDatabase () {
-  $.ajax({
-    method: "post",
-    url: "localhost:4000/server/tournaments",
-    dataType: 'json'
-  }).done((response) => {
-    console.log(response.data);
-    this.setState({data: {tournaments: response.data}});
-    console.log(this.state.data.tournaments);
-  });
 }
 findTourn(){
   this.setState({data: {one: <FindTournament data = {this.state.data} />}});
@@ -52,6 +45,9 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
+  this.socket.onopen = function (event) {
+      console.log("Connected to Server.");
+    };
 }
 
    render() {
