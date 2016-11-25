@@ -46,14 +46,13 @@ new WebpackDevServer(webpack(config), {
 
 console.log('heyyyyyy');
 
-app.listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
-
 app.get("/server/tournaments", (req, res) => {
   postTournamentData();
   console.log('hello');
   res.send({test: 'test'});
 });
 
+app.listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 
 app.use(express.static(__dirname + 'styles'));
