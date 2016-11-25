@@ -6,7 +6,8 @@ const pg = require('pg');
 const SocketServer = require('ws').Server;
 const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
 const client = new pg.Client(connectionString);
-const results = []
+
+  const results = []
 
 function postTournamentData(){
   client.connect();
@@ -22,6 +23,16 @@ function postTournamentData(){
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
+     setup: function(app) {
+    // Here you can access the Express app object and add your own custom middleware to it.
+    // For example, to define custom handlers for some paths:
+    // app.get('/some/path', function(req, res) {
+    //   res.json({ custom: 'response' });
+    // });
+    app.get('/server/tournaments', function(req, res){
+      res.json({test: results});
+    })
+  },
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
@@ -32,13 +43,6 @@ new WebpackDevServer(webpack(config), {
       console.log(err);
     }
     console.log('Running at http://0.0.0.0:5000');
+    postTournamentData();
 });
-
-const wss = new SocketServer({ server });
-
-wss.on('connection', (ws) => {
-  console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
-});
-
 

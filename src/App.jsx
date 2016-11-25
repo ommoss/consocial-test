@@ -29,6 +29,15 @@ class App extends React.Component {
       }
   }
 updateFromDatabase () {
+  $.ajax({
+    method: "post",
+    url: "/server/tournaments",
+    dataType: 'json'
+  }).done((response) => {
+    // JSON.stringify(response.data)
+    console.log(response.test[0]);
+    this.setState({data: {tournaments: response.test}})
+  });
 }
 findTourn(){
   this.setState({data: {one: <FindTournament data = {this.state.data} />}});
@@ -43,9 +52,6 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
-  this.socket.onopen = function (event) {
-      console.log("Connected to Server.");
-    };
 }
 
    render() {
