@@ -15,7 +15,7 @@ class App extends React.Component {
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
 
-      this.socket = new WebSocket("wss://consocial-server.herokuapps.com");
+      this.socket = new WebSocket("https://consocial-server.herokuapps.com");
       this.state = {
           data: {
             tournaments: [],
