@@ -39,7 +39,7 @@ new WebpackDevServer(webpack(config), {
 });
 console.log('hey');
 
-app.get("server/tournaments", (req, res) => {
+app.get("localhost:4000", (req, res) => {
   postTournamentData();
   console.log('hello');
   res.send({test: 'test'});
