@@ -6,8 +6,8 @@ const pg = require('pg');
 const SocketServer = require('ws').Server;
 const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
 const client = new pg.Client(connectionString);
-
-  const results = []
+const results = []
+let done = false;
 
 function postTournamentData(){
   client.connect();
@@ -16,8 +16,8 @@ function postTournamentData(){
       results.push(row);
     });
   query.on('end', () => {
-
     console.log('postTournamentData');
+    done = true;
     client.end(); });
 }
 
@@ -30,7 +30,13 @@ new WebpackDevServer(webpack(config), {
     //   res.json({ custom: 'response' });
     // });
     app.get('/server/tournaments', function(req, res){
-      res.json({test: results});
+      postTournamentData();
+      if(done === true){
+        res.json({test: results});
+        done = false;
+      }else{
+        res.json({test: 'not loaded'})
+      }
     })
   },
     watchOptions: {
@@ -43,6 +49,5 @@ new WebpackDevServer(webpack(config), {
       console.log(err);
     }
     console.log('Running at http://0.0.0.0:5000');
-    postTournamentData();
 });
 

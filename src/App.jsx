@@ -35,7 +35,7 @@ updateFromDatabase () {
     dataType: 'json'
   }).done((response) => {
     // JSON.stringify(response.data)
-    console.log(response.test[0]);
+    console.log(response.test);
     this.setState({data: {tournaments: response.test}})
   });
 }
