@@ -31,12 +31,12 @@ class App extends React.Component {
 updateFromDatabase () {
   $.ajax({
     method: "post",
-    url: "localhost:4000/server/tournaments",
+    url: "/server/tournaments",
     dataType: 'json'
   }).done((response) => {
-    console.log(response.data);
-    this.setState({data: {tournaments: response.data}});
-    console.log(this.state.data.tournaments);
+    // JSON.stringify(response.data)
+    console.log(response.test[0]);
+    this.setState({data: {tournaments: response.test}})
   });
 }
 findTourn(){
