@@ -7,13 +7,13 @@ import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 import Footer from './footer/Footer.jsx';
 
-
 class App extends React.Component {
     constructor(props){
       super(props);
       this.findTourn = this.findTourn.bind(this);
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
+      this.updateFromDatabase = this.updateFromDatabase.bind(this);
       this.state = {
           data: {
             tournaments: [],
@@ -28,21 +28,31 @@ class App extends React.Component {
           }
       }
   }
+updateFromDatabase () {
+  $.ajax({
+    method: "post",
+    url: "/server/tournaments",
+    dataType: 'json'
+  }).done((response) => {
+    console.log(response.data);
+    this.setState({data: {tournaments: response.data}});
+    console.log(this.state.data.tournaments);
+  });
+}
+findTourn(){
+  this.setState({data: {one: <FindTournament data = {this.state.data} />}});
+  this.updateFromDatabase();
+}
 
-  findTourn(){
-    this.setState({data: {one: <FindTournament data = {this.state.data} />}});
-  }
+createTourn(){
+  this.setState({data: {one: <Tournament />}});
+}
 
-  createTourn(){
-    this.setState({data: {one: <Tournament />}});
-  }
-
-  backHome(){
-    this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
-  }
-  componentDidMount(){
-    console.log(query);
-  }
+backHome(){
+  this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
+}
+componentDidMount(){
+}
 
    render() {
 
