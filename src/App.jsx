@@ -30,13 +30,13 @@ class App extends React.Component {
   }
 updateFromDatabase () {
   $.ajax({
-    method: "get",
-    url: "/tournaments",
-    dataType: 'JSON'
+    method: "post",
+    url: "/server/tournaments",
+    dataType: 'json'
   }).done((response) => {
     console.log(response.data);
-    // this.setState({data: {tournaments: response.data}});
-    //  console.log(this.state.data.tournaments);
+    this.setState({data: {tournaments: response.data}});
+    console.log(this.state.data.tournaments);
   });
 }
 findTourn(){
@@ -53,18 +53,7 @@ backHome(){
 }
 componentDidMount(){
 }
-    // $.ajax({
-    //   url: 'http://localhost:5000/assets',
-    //   dataType: 'json',
-    //   cache: false,
-    //   success: function(data) {
-    //     this.setState({data:{tournaments: data}});
-    //     console.log(this.state.data.tournaments);
-    //   }.bind(this),
-    //   error: function(xhr, status, err) {
-    //     console.error(this.props.url, status, err.toString());
-    //   }.bind(this)
-    // });
+
    render() {
 
       return (

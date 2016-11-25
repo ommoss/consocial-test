@@ -10,6 +10,7 @@ const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant
 const client = new pg.Client(connectionString);
 
 const app = express();
+
 const results = []
 
 function postTournamentData(){
@@ -35,9 +36,11 @@ new WebpackDevServer(webpack(config), {
       console.log(err);
     }
     console.log('Running at http://0.0.0.0:5000');
-    postTournamentData();
 });
-app.post("/tournaments", (req, res) => {
+console.log('hey');
+
+app.get("server/tournaments", (req, res) => {
+  postTournamentData();
   console.log('hello');
   res.send({test: 'test'});
 });
