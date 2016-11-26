@@ -17,7 +17,8 @@ class Main extends React.Component {
  render() {
     return (
       <div>
-        <div id="fullMain">
+
+        <div>
           <Row>
             <Col className = 'left' xs={6} md={6} >
 
