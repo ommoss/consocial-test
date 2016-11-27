@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 updateFromDatabase () {
   $.ajax({
-    method: "get",
+    method: "post",
     url: "/tournaments",
     dataType: 'json'
   }).done((response) => {

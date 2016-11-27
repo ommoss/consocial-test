@@ -1,30 +1,55 @@
+require('dotenv').config();
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack.config');
 const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
-const client = new pg.Client(connectionString);
+var configPg = {
+  user: process.env.DATABASE_USER, //env var: PGUSER
+  database: process.env.DATABASE_DATABASE, //env var: PGDATABASE
+  password: process.env.DATABASE_PASSWORD, //env var: PGPASSWORD
+  port: 5432, //env var: PGPORT
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+};
+const pool = new pg.Pool(configPg);
 
 function postTournamentData(req, res){
-  client.connect();
-  let query = client.query('SELECT * FROM tournament;');
+  let tournaments = [];
+   pool.connect(function(err, client, done) {
+    if(err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * From tournament', function(err, result) {
+      //call `done()` to release the client back to the pool
+      done();
 
-  query.on('end', (result) => {
-    console.log('postTournamentData');
-    console.log(result.rows)
-    res.json({test: result.row});
-    client.end();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      console.log(result.rows);
+      tournaments.push(result.rows);
+    res.json({test: tournaments});
+    });
   });
 }
 function postUsers(req, res){
-  client.connect();
-  let query = client.query('SELECT * FROM users;');
+  let users = [];
+  pool.connect(function(err, client, done) {
+    if(err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM users', function(err, result) {
+      //call `done()` to release the client back to the pool
+      done();
 
-  query.on('end', (result) => {
-    console.log('postTournamentData');
-    console.log(result.rows)
-    res.json({test: result.rows});
-    client.end();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      console.log(result.rows);
+      //output: 1
+      users.push(result.rows);
+      res.json({test: users});
+    });
   });
 }
 
