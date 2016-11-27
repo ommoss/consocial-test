@@ -16,13 +16,15 @@ class Find extends React.Component {
     return (
       <Col id="findtourn" sm={12} md={12}>
       <img src={require('../assets/Joystick.jpg')}/>
-        <Col sm={5} md={5}>
-        </Col>
-        <Col className="innerdiv" sm={6} md={6}>
 
-          <h1>Find a tournament</h1>
-          <h4>Join a public tournament</h4>
+        <Col className="innerdiv" sm={11} md={11}>
+          <div className="innerdivheadline">
+          <h1><b>Find a tournament</b></h1>
+          <h4><b>Join a public tournament</b></h4>
+          </div>
           <h1 className="innerbtn" onClick={this.props.findTourn}>Start Here</h1>
+           <Col sm={1} md={1}>
+        </Col>
         </Col>
      </Col>
     );

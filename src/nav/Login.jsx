@@ -50,6 +50,8 @@ import Button from 'react-bootstrap/lib/Button';
 close(){ this.setState({ show: false})}
 
   render() {
+    let close = () => this.setState({ show: false});
+
     return(
       <div>
 
