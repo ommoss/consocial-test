@@ -14,6 +14,7 @@ class App extends React.Component {
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
+      this.updateUsers = this.updateUsers.bind(this);
       this.state = {
           data: {
             tournaments: [],
@@ -30,13 +31,22 @@ class App extends React.Component {
   }
 updateFromDatabase () {
   $.ajax({
-    method: "post",
-    url: "/server/tournaments",
+    method: "get",
+    url: "/tournaments",
     dataType: 'json'
   }).done((response) => {
-    // JSON.stringify(response.data)
     console.log(response.test);
-    this.setState({data: {tournaments: response.test}})
+    // this.setState({data: {tournaments: response.test}})
+  });
+}
+updateUsers () {
+  $.ajax({
+    method: "get",
+    url: "/users",
+    dataType: 'json'
+  }).done((response) => {
+    console.log(response.test);
+    // this.setState({data: {tournaments: response.test}})
   });
 }
 findTourn(){
@@ -46,6 +56,7 @@ findTourn(){
 
 createTourn(){
   this.setState({data: {one: <Tournament />}});
+  this.updateUsers();
 }
 
 backHome(){

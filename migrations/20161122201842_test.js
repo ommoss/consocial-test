@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
             table.increments('id').primary();
             table.string('title');
             table.string('body');
-            table.boolean('privte');
+            table.boolean('private');
             table.integer('author_id')
                  .references('uid')
                  .inTable('users');

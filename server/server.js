@@ -1,26 +1,31 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack.config');
-var express = require('express');
 const pg = require('pg');
-const SocketServer = require('ws').Server;
 const connectionString = process.env.DATABASE_URL || 'postgres://vagrant:vagrant@localhost:5432/test';
 const client = new pg.Client(connectionString);
-const results = []
-let done = false;
 
-function postTournamentData(){
+function postTournamentData(req, res){
   client.connect();
+  let query = client.query('SELECT * FROM tournament;');
 
-  const query = client.query('SELECT * FROM tournament;');
-
-  query.on('row', (row) => {
-      results.push(row);
-    });
-  query.on('end', () => {
+  query.on('end', (result) => {
     console.log('postTournamentData');
-    done = true;
-    client.end(); });
+    console.log(result.rows)
+    res.json({test: result.row});
+    client.end();
+  });
+}
+function postUsers(req, res){
+  client.connect();
+  let query = client.query('SELECT * FROM users;');
+
+  query.on('end', (result) => {
+    console.log('postTournamentData');
+    console.log(result.rows)
+    res.json({test: result.rows});
+    client.end();
+  });
 }
 
 new WebpackDevServer(webpack(config), {
@@ -31,14 +36,11 @@ new WebpackDevServer(webpack(config), {
     // app.get('/some/path', function(req, res) {
     //   res.json({ custom: 'response' });
     // });
-    app.get('/server/tournaments', function(req, res){
-      postTournamentData();
-      if(done === true){
-        res.json({test: results});
-        done = false;
-      }else{
-        res.json({test: 'not loaded'})
-      }
+    app.get('/tournaments', function(req, res){
+      postTournamentData(req, res);
+    })
+    app.get('/users', function(req, res){
+      postUsers(req, res);
     })
   },
     watchOptions: {
