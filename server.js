@@ -1,7 +1,7 @@
 require('dotenv').config();
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var config = require('../webpack.config');
+var config = require('./webpack.config');
 const pg = require('pg');
 var configPg = {
   user: process.env.DATABASE_USER, //env var: PGUSER
@@ -12,7 +12,7 @@ var configPg = {
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 const pool = new pg.Pool(configPg);
-
+console.log(process.env.DATABASE_PASSWORD)
 function postTournamentData(req, res){
   let tournaments = [];
    pool.connect(function(err, client, done) {
