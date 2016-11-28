@@ -29,6 +29,11 @@ exports.up = function(knex, Promise) {
             table.integer('game_id')
                   .references('gid')
                   .inTable('games');
+            table.integer('max');
+            table.integer('current');
+            table.string('Location');
+            table.string('time');
+            table.string('date');
             table.timestamps();
         })
     ])
