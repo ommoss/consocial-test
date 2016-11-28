@@ -34,6 +34,24 @@ function postTournamentData(req, res){
   });
 }
 
+// insert into req body
+
+// function postTournamentData(req,res){
+//   pool.connect(err, client, done) {
+//     if(err){
+//       return console.error('error fetching client form pool', err);
+//     }
+//     client.query('INSERT INTO tournament (title, body) VALUES ('Namersz', "googd tournament"), function(err, result){
+//       done();
+
+//       if(err){
+//         return console.error('error running query', err);
+//       }
+//       req.json({test: result.rows});
+//     })
+//   }
+// }
+
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
      setup: function(app) {
@@ -48,6 +66,9 @@ new WebpackDevServer(webpack(config), {
     app.get('/users', function(req, res){
       postUsers(req, res);
     })
+    // app.post('/tournaments', function(req, res){
+     //   postTournamentData(req,res);
+    // })
   },
     watchOptions: {
       aggregateTimeout: 300,

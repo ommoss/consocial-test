@@ -27,7 +27,8 @@ updateFromDatabase () {
   $.ajax({
     method: "post",
     url: "/tournaments",
-    dataType: 'json'
+    dataType: 'json',
+   // body:
   }).done((response) => {
 
     this.setState({tournaments: response.test});
