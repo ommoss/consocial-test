@@ -31,7 +31,7 @@ exports.up = function(knex, Promise) {
                   .inTable('games');
             table.integer('max');
             table.integer('current');
-            table.string('Location');
+            table.string('location');
             table.string('time');
             table.string('date');
             table.timestamps();
