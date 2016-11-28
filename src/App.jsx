@@ -15,7 +15,7 @@ class App extends React.Component {
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
-      this.updateUsers = this.updateUsers.bind(this);
+
       this.state = {
           data: {
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
