@@ -45,9 +45,6 @@ new WebpackDevServer(webpack(config), {
     app.get('/tournaments', function(req, res){
       postTournamentData(req, res);
     })
-    app.get('/users', function(req, res){
-      postUsers(req, res);
-    })
   },
     watchOptions: {
       aggregateTimeout: 300,
