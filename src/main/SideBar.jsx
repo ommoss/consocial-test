@@ -4,30 +4,39 @@ import ReactDOM from 'react-dom';
 class SideBar extends React.Component {
     constructor(props){
       super(props);
-
     }
 
 
 
    render() {
-    console.log(this.props.data);
+    var data = this.props.data
       return (
-        <div className="sidebar-container">
-        <div className="well" id="tournament-box">
-            <h3><span id="tournament-name" className ="tourn-info">{this.props.data.tournamentName}</span></h3>
-            <hr/>
-            <h4>Game Type: <span id="tournament-game-type" className ="tourn-info">{this.props.data.tournamentGameType}</span></h4>
-            <h4>Location: <span id="tournament-location" className ="tourn-info">{this.props.data.tournamentLocation}</span></h4>
-            <h4>Start Time: <span id="tournament-start-time" className ="tourn-info">{this.props.data.tournamentStart}</span></h4>
-            <h4>Date: <span id="tournament-date" className ="tourn-info">{this.props.data.tournamentDate}</span></h4>
-            <h4>Max Players: <span id="tournament-player-max" className ="tourn-info"> {this.props.data.tournamentPlayerMax} </span></h4>
-            <h4>Current Players: <span id="tournament-player-current" className ="tourn-info"> {this.props.data.tournamentPlayerCurrent} </span></h4>
-            <button type="submit" className="btn btn-default">Join Tournament</button>
-            <button type="submit" className="btn btn-default">More Details</button>
-          </div>
+        <div>
+          {data.map(function(object, i){
+            return(
+              <div className='tournament' key={object.id}>
+                <div className="sidebar-container">
+                <div className="well" id="tournament-box">
+                  <h3><span id="tournament-name" className ="tourn-info">{object.title}</span></h3>
+                  <hr/>
+                  <h4>Game Type: <span id="tournament-game-type" className ="tourn-info">{object.game_id}</span></h4>
+                  <h4>Location: <span id="tournament-location" className ="tourn-info">{object.location}</span></h4>
+                  <h4>Start Time: <span id="tournament-start-time" className ="tourn-info">{object.time}</span></h4>
+                  <h4>Date: <span id="tournament-date" className ="tourn-info">{object.date}</span></h4>
+                  <h4>Max Players: <span id="tournament-player-max" className ="tourn-info"> {object.max} </span></h4>
+                  <h4>Current Players: <span id="tournament-player-current" className ="tourn-info"> {object.current} </span></h4>
+                  <button type="submit" className="btn btn-default">Join Tournament</button>
+                  <button type="submit" className="btn btn-default">More Details</button>
+                </div>
+                </div>
+              </div>
+                )
+              }
+            )
+          }
         </div>
-    );
-  }
+      );
+    }
 }
 
 export default SideBar;

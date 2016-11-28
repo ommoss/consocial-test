@@ -40,7 +40,25 @@ exports.seed = function(knex, Promise) {
           body: 'beat your friends up!',
           private: false
           author_id: 1,
-          game_id: 1
+          game_id: 1,
+          max: 20,
+          current: 5,
+          location: 'Garricks Head Pub',
+          time: '4:00',
+          date: 'Nov 31st'
+        }),
+          knex('tournament').insert({
+          id: 2,
+          title: 'Death Party',
+          body: 'Drink when you die',
+          private: false
+          author_id: 2,
+          game_id: 1,
+          max: 10,
+          current: 8,
+          location: 'Loones and Tunes',
+          time: '8:00',
+          date: 'Dec 5th'
         })
       ]);
     });

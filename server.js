@@ -15,7 +15,6 @@ var configPg = {
 const pool = new pg.Pool(configPg);
 console.log(process.env.DATABASE_PASSWORD)
 function postTournamentData(req, res){
-  let tournaments = [];
    pool.connect(function(err, client, done) {
     if(err) {
       return console.error('error fetching client from pool', err);
@@ -27,29 +26,7 @@ function postTournamentData(req, res){
       if(err) {
         return console.error('error running query', err);
       }
-      console.log(result.rows);
-      tournaments.push(result.rows);
-    res.json({test: tournaments});
-    });
-  });
-}
-function postUsers(req, res){
-  let users = [];
-  pool.connect(function(err, client, done) {
-    if(err) {
-      return console.error('error fetching client from pool', err);
-    }
-    client.query('SELECT * FROM users', function(err, result) {
-      //call `done()` to release the client back to the pool
-      done();
-
-      if(err) {
-        return console.error('error running query', err);
-      }
-      console.log(result.rows);
-      //output: 1
-      users.push(result.rows);
-      res.json({test: users});
+    res.json({test: result.rows});
     });
   });
 }

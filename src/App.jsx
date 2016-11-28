@@ -14,19 +14,11 @@ class App extends React.Component {
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
-      this.updateUsers = this.updateUsers.bind(this);
       this.state = {
           data: {
-            tournaments: [],
-            tournamentName: "MarioCart Special",
-            tournamentGameType: "MarioCart",
-            tournamentLocation: "Garricks Head Pub",
-            tournamentStart: "4:00pm",
-            tournamentDate: "Dec 10, 2016",
-            tournamentPlayerMax: 8,
-            tournamentPlayerCurrent: 8,
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
-          }
+          },
+          tournaments:[]
       }
   }
 updateFromDatabase () {
@@ -35,34 +27,24 @@ updateFromDatabase () {
     url: "/tournaments",
     dataType: 'json'
   }).done((response) => {
-    console.log(response.test);
-    // this.setState({data: {tournaments: response.test}})
+    this.setState({tournaments: response.test});
   });
 }
-updateUsers () {
-  $.ajax({
-    method: "get",
-    url: "/users",
-    dataType: 'json'
-  }).done((response) => {
-    console.log(response.test);
-    // this.setState({data: {tournaments: response.test}})
-  });
-}
+
 findTourn(){
-  this.setState({data: {one: <FindTournament data = {this.state.data} />}});
   this.updateFromDatabase();
+  this.setState({data: {one: <FindTournament data = {this.state.tournaments} />}});
 }
 
 createTourn(){
   this.setState({data: {one: <Tournament />}});
-  this.updateUsers();
 }
 
 backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
+  this.updateFromDatabase()
 }
 
    render() {
