@@ -6,6 +6,7 @@ import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 import Footer from './footer/Footer.jsx';
+import TournamentDisplay from './main/Tournamentdisplay.jsx';
 
 class App extends React.Component {
     constructor(props){
@@ -14,6 +15,7 @@ class App extends React.Component {
       this.createTourn = this.createTourn.bind(this);
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
+      this.updateUsers = this.updateUsers.bind(this);
       this.state = {
           data: {
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
@@ -27,7 +29,9 @@ updateFromDatabase () {
     url: "/tournaments",
     dataType: 'json'
   }).done((response) => {
+
     this.setState({tournaments: response.test});
+
   });
 }
 
@@ -38,6 +42,7 @@ findTourn(){
 
 createTourn(){
   this.setState({data: {one: <Tournament />}});
+  this.updateUsers();
 }
 
 backHome(){

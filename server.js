@@ -15,6 +15,7 @@ var configPg = {
 const pool = new pg.Pool(configPg);
 console.log(process.env.DATABASE_PASSWORD)
 function postTournamentData(req, res){
+
    pool.connect(function(err, client, done) {
     if(err) {
       return console.error('error fetching client from pool', err);
@@ -26,7 +27,9 @@ function postTournamentData(req, res){
       if(err) {
         return console.error('error running query', err);
       }
+
     res.json({test: result.rows});
+
     });
   });
 }
