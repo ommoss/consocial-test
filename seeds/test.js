@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
           id: 2,
           title: 'Death Party',
           body: 'Drink when you die',
-          private: false
+          private: false,
           author_id: 2,
           game_id: 1,
           max: 10,
