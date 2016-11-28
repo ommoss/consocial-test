@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('users').insert({
-          uid: 1,
+          uid: 1000,
           username: 'bob',
           password: 'bob',
           first_name: 'bob',
@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
           email: 'bob@example.com'
         }),
         knex('users').insert({
-          uid: 2,
+          uid: 2000,
           username: 'bill',
           password: 'science',
           first_name: 'bill',
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
           email: 'scienceguy@example.com'
         }),
         knex('users').insert({
-          uid: 3,
+          uid: 3000,
           username: 'ross',
           password: 'paint',
           first_name: 'Bob',
@@ -30,17 +30,16 @@ exports.seed = function(knex, Promise) {
           email: 'paints@example.com'
         }),
         knex('games').insert({
-          gid: 1,
+          gid: 6000,
           name: 'Super Smash Bros',
           description: 'Beat your friends'
         }),
         knex('tournament').insert({
-          id: 1,
           title: 'Beat Down',
           body: 'beat your friends up!',
           private: false,
-          author_id: 1,
-          game_id: 1,
+          author_id: 1000,
+          game_id: 6000,
           max: 20,
           current: 5,
           location: 'Garricks Head Pub',
@@ -48,12 +47,11 @@ exports.seed = function(knex, Promise) {
           date: 'Nov 31st'
         }),
           knex('tournament').insert({
-          id: 2,
           title: 'Death Party',
           body: 'Drink when you die',
           private: false,
-          author_id: 2,
-          game_id: 1,
+          author_id: 2000,
+          game_id: 6000,
           max: 10,
           current: 8,
           location: 'Loones and Tunes',

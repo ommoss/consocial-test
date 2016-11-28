@@ -63,12 +63,6 @@ new WebpackDevServer(webpack(config), {
     app.get('/tournaments', function(req, res){
       postTournamentData(req, res);
     })
-    app.get('/users', function(req, res){
-      postUsers(req, res);
-    })
-    // app.post('/tournaments', function(req, res){
-     //   postTournamentData(req,res);
-    // })
   },
     watchOptions: {
       aggregateTimeout: 300,
