@@ -92,7 +92,7 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
+                  <input type="number" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
 

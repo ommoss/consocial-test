@@ -6,6 +6,7 @@ import Tournament from './main/Tournament.jsx'
 import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 import Footer from './footer/Footer.jsx';
+import TournamentDisplay from './main/Tournamentdisplay.jsx';
 
 class App extends React.Component {
     constructor(props){
