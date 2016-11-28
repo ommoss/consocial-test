@@ -4,6 +4,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 const pg = require('pg');
 var configPg = {
+  host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER, //env var: PGUSER
   database: process.env.DATABASE_DATABASE, //env var: PGDATABASE
   password: process.env.DATABASE_PASSWORD, //env var: PGPASSWORD
