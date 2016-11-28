@@ -19,7 +19,7 @@ exports.up = function(knex, Promise) {
         }),
 
         knex.schema.createTable('tournament', function(table){
-            table.increments('id').primary();
+            table.increments('id');
             table.string('title');
             table.string('body');
             table.boolean('private');
