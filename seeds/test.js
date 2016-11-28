@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
           id: 1,
           title: 'Beat Down',
           body: 'beat your friends up!',
-          private: false
+          private: false,
           author_id: 1,
           game_id: 1,
           max: 20,

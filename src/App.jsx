@@ -44,7 +44,7 @@ backHome(){
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
 componentDidMount(){
-  this.updateFromDatabase()
+  this.updateFromDatabase();
 }
 
    render() {
