@@ -22,7 +22,7 @@ class Tournament extends React.Component {
   }
 
 formCheck(){
-if(this.state.tournName && this.state.tournStart && this.state.tournStart && this.state.maxPlayers && this.state.location && this.state.extraInfo){
+if(this.state.tournName && this.state.tournGame && this.state.tournStart && this.state.maxPlayers && this.state.location && this.state.extraInfo){
   alert("good job");
 } else {alert("fill in all forms please")
 }
@@ -40,8 +40,6 @@ handleChange(event){
     this.setState({maxPlayers: event.target.value});
   } else if (event.target.id ==="location"){
     this.setState({location: event.target.value});
-  } else if (event.target.id ==="time"){
-    this.setState({time: event.target.value});
   }else if (event.target.id ==="extraInfo"){
     this.setState({extraInfo: event.target.value});
   }console.log(this.state)
@@ -104,15 +102,6 @@ handleChange(event){
                     <input type="text" name="location" id="location" value={this.state.location} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                   </Col>
                 </div>
-
-                <div className="container">
-                <Col  xs={4} md={4}>
-                <h3>Time</h3>
-                 </Col>
-                <Col  xs={8} md={8}>
-                <input type="text" name="time" id="time" value={this.state.time} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
-                 </Col>
-                 </div>
 
                 <div className="container">
                   <Col  xs={4} md={4}>

@@ -15,8 +15,8 @@ class GoogleMap extends React.Component {
     return (
       <Map
         containerStyle = {{
-          position: 'fixed',
-          width: '100vw',
+          position: 'relative',
+          width: '60vw',
           height: '100vh'
         }}
         google={window.google}
