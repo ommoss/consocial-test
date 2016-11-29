@@ -21,6 +21,7 @@
 #navBar {
   border-bottom: 1px solid black;
   background-color:#14181e;
+
 }
 
 
@@ -29,11 +30,34 @@
     background-color: #ffa31a;
     border-color: white;
 }
-// Tounament info box
+// Tounament info SIDEBAR
+
+.sideFind {
+  height:800px;
+  overflow: scroll;
+}
+
+// .sidebar-container {
+//   overflow: hidden;
+
+// }
 
 .well {
-  background-color: white;
+  background-color: #51555b;
   border: 1px solid black;
+  margin-left: 15px;
+}
+
+#tournament-name {
+  color: #ffa31a;
+}
+
+.tourn-info {
+  color: white;
+}
+
+.well h4 {
+  color: white;
 }
 
 // MAIN///////////////////////////////////
@@ -166,10 +190,11 @@ input[type="text"], input[type="date"], input[type="time"], input[type="password
 
  // Findtournament Page //////////////////////////////////////////////////////
 
- .mapdiv{
+ .mapdiv {
   height: 800px;
-  z-index: -1;
- }
+  z-index: 1;
+  overflow: scroll;
+}
 
  //DISPLAYTOURNAMNET PAGR
 
@@ -200,6 +225,8 @@ input[type="text"], input[type="date"], input[type="time"], input[type="password
  #footer {
   border-top: 1px solid black;
   background-color: #14181e;
-  height: 75px;
-  z-index: 1;
+  height: 100px;
+  z-index: 100;
+  position: fixed;
+  width: 100%
  }
