@@ -57,6 +57,30 @@ exports.seed = function(knex, Promise) {
           location: 'Loones and Tunes',
           time: '8:00',
           date: 'Dec 5th'
+        }),
+          knex('tournament').insert({
+          title: 'ath Party',
+          body: 'You die',
+          private: false,
+          author_id: 2000,
+          game_id: 6000,
+          max: 10,
+          current: 8,
+          location: 'Boones and Tunes',
+          time: '9:00',
+          date: 'Dec 5th'
+        }),
+          knex('tournament').insert({
+          title: 'HEARTS',
+          body: 'This one is going to be great',
+          private: false,
+          author_id: 1000,
+          game_id: 6000,
+          max: 10,
+          current: 8,
+          location: '777 Government St',
+          time: '11:00',
+          date: 'Dec 11th'
         })
       ]);
     });

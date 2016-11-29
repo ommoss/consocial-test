@@ -36,12 +36,12 @@ function postTournamentData(req, res){
 
 // insert into req body
 
-// function postTournamentData(req,res){
+// function inputTournamentData(req,res){
 //   pool.connect(err, client, done) {
 //     if(err){
 //       return console.error('error fetching client form pool', err);
 //     }
-//     client.query('INSERT INTO tournament (title, body) VALUES ('Namersz', "googd tournament"), function(err, result){
+//     client.query('INSERT INTO tournament (title, body, author_id, game_id, max, current, location, time, date) VALUES ('Namersz', "googd tournament", 1000, 2000, 10, 8, "950 Rockland Ave, Victoria"), function(err, result){
 //       done();
 
 //       if(err){
