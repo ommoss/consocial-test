@@ -22,7 +22,7 @@ class FindTournament extends React.Component {
           </Col>
             <Col xs={8} md={8}>
               <div className="mapdiv">
-                <GoogleMap />
+                <GoogleMap data={this.props.data}/>
               </div>
             </Col>
         </Row>

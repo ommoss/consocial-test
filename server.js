@@ -13,7 +13,6 @@ var configPg = {
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 const pool = new pg.Pool(configPg);
-console.log(process.env.DATABASE_PASSWORD)
 function postTournamentData(req, res){
 
    pool.connect(function(err, client, done) {
