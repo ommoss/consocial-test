@@ -17,7 +17,7 @@ class FindTournament extends React.Component {
       return (
       <div className="tournDiv">
         <Row>
-          <Col xs={4} md={4}>
+          <Col className="sideFind" xs={4} md={4}>
             <SideBar data={this.props.data}/>
           </Col>
             <Col xs={8} md={8}>

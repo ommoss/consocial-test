@@ -21,6 +21,7 @@
 #navBar {
   border-bottom: 1px solid black;
   background-color:#14181e;
+
 }
 
 
@@ -31,10 +32,15 @@
 }
 // Tounament info SIDEBAR
 
-.sidebar-container {
-
-
+.sideFind {
+  height:800px;
+  overflow: scroll;
 }
+
+// .sidebar-container {
+//   overflow: hidden;
+
+// }
 
 .well {
   background-color: #51555b;
@@ -184,9 +190,10 @@ input[type="text"], input[type="date"], input[type="time"], input[type="password
 
  // Findtournament Page //////////////////////////////////////////////////////
 
- .mapdiv{
+ .mapdiv {
   height: 800px;
   z-index: 1;
+  overflow: scroll;
 }
 
  //DISPLAYTOURNAMNET PAGR
@@ -219,5 +226,7 @@ input[type="text"], input[type="date"], input[type="time"], input[type="password
   border-top: 1px solid black;
   background-color: #14181e;
   height: 100px;
-  z-index: -1;
+  z-index: 100;
+  position: fixed;
+  width: 100%
  }
