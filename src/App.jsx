@@ -22,7 +22,7 @@ class App extends React.Component {
 
       this.state = {
           data: {
-            one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome}  />
+            one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} />
           },
           tournaments:[],
           location: []
@@ -66,18 +66,19 @@ updateFromDatabase () {
 
 
 findTourn(){
-  this.updateFromDatabase();
   this.setState({data: {one: <FindTournament location = {this.state.location} data = {this.state.tournaments} />}});
 }
 
 createTourn(){
-  this.setState({data: {one: <Tournament />}});
+  this.setState({data: {one: <Tournament created = {this.backHome} backHome = {this.backHome}/>}});
   //this.updateUsers();
 }
 
 backHome(){
+  this.updateFromDatabase();
   this.setState({data: {one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />}});
 }
+
 componentDidMount(){
   this.updateFromDatabase();
   //this.getLocation();

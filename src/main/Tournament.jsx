@@ -23,13 +23,13 @@ class Tournament extends React.Component {
       tournStart:"",
       extraInfo:"",
       tournDate: ""
-
     }
   }
 
 formCheck(){
   if(this.state.tournName && this.state.tournGame && this.state.tournStart && this.state.maxPlayers && this.state.location && this.state.extraInfo){
     this.updateToDatabase();
+    this.props.backHome();
   } else {alert("fill in all forms please")
   }
 }
