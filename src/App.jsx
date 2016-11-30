@@ -50,7 +50,6 @@ updateFromDatabase () {
           locations.push(object)
       if(locations.length === that.state.tournaments.length){
       that.setState({location: locations})
-      console.log(that.state.location, "app")
       }
         });
     })

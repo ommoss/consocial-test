@@ -10,44 +10,36 @@ var geo = geocoder({
 class GoogleMap extends React.Component {
      constructor(props){
       super(props);
-      this.getLocation = this.getLocation.bind(this);
+      this.onMarkerClick = this.onMarkerClick.bind(this);
+      this.onMapClicked = this.onMapClicked.bind(this);
       this.state = {
         google: "",
         selectedPlace: "LHL",
-        location: []
+        location: [],
+        showingInfoWindow: false,
+        activeMarker: {},
+        selectedPlace: {}
     }
   }
-  getLocation(){
-    var locations = [];
-    var that = this;
-    this.props.data.forEach(function(element){
-        geo.find(element.location, function(err, res){
-          var object = {
-            id: element.id,
-            title: element.title,
-            lat: res[0].location.lat,
-            lng: res[0].location.lng
-          };
-          // process response object
-          locations.push(object)
-          console.log(object)
-        });
-      if(locations.length === that.props.data.length){
-      that.setState({location: locations})
-      }
-    })
+
+  onMarkerClick(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
   }
-  shouldComponentUpdate(nextProps,nextState) {
-    if(this.state.location !== nextState.location) {
-      return true;
+
+  onMapClicked(props) {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
     }
-    return false;
-  }
-  componentDidMount(){
   }
 
   render() {
-    console.log(this.props.location, 'hello')
     var location = this.props.location;
     return (
       <div>
@@ -60,17 +52,25 @@ class GoogleMap extends React.Component {
         classname ={'map'}
         google={window.google}
         zoom={14}
-        centerAroundCurrentLocation = {true}>
+        centerAroundCurrentLocation = {true}
+        onClick={this.onMapClicked}>
         {location.map((object, index) => {
-          console.log(object, 'test');
           return (
           <Marker
               key = {object.id}
               name = {object.title}
               position={{lat: object.lat, lng: object.lng}}
+              onClick={this.onMarkerClick}
               />
             );
         })}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+        </InfoWindow>
       </Map>
         </div>
     );
