@@ -75,8 +75,8 @@ import Button from 'react-bootstrap/lib/Button';
           onHide={close}
           container={this}
         >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">Sign up here</Modal.Title>
+          <Modal.Header>
+            <Modal.Title className="contained-modal-title">Sign up here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form id = "signup" onSubmit={this.handleSubmit}>

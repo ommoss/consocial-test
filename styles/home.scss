@@ -1,5 +1,4 @@
 
-
 // NAVBAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -36,7 +35,15 @@
   height:800px;
   overflow: scroll;
 }
-
+#players{
+  float: right;
+}
+#time{
+  float:left
+}
+#map{
+  overflow: hidden;
+}
 // .sidebar-container {
 //   overflow: hidden;
 

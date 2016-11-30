@@ -21,11 +21,8 @@ class SideBar extends React.Component {
                   <hr/>
                   <h4>Game Type: <span id="tournament-game-type" className ="tourn-info">{object.game}</span></h4>
                   <h4>Location: <span id="tournament-location" className ="tourn-info">{object.location}</span></h4>
-                  <h4>Start Time: <span id="tournament-start-time" className ="tourn-info">{object.time}</span></h4>
                   <h4>Date: <span id="tournament-date" className ="tourn-info">{object.date}</span></h4>
-                  <h4>Max Players: <span id="tournament-player-max" className ="tourn-info"> {object.max} </span></h4>
-                  <h4>Current Players: <span id="tournament-player-current" className ="tourn-info"> {object.current} </span></h4>
-                  <More data ={object.body} />
+                  <More data ={object} />
                 </div>
                 </div>
               </div>

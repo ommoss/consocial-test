@@ -41,14 +41,11 @@ class GoogleMap extends React.Component {
   render() {
     var location = this.props.location;
     return (
-      <div>
+      <div id = 'map'>
       <Map
         containerStyle = {{
-          position: 'relative',
-          width: '60vw',
-          height: '100vh'
+          position: 'relative'
         }}
-        classname ={'map'}
         google={window.google}
         zoom={14}
         centerAroundCurrentLocation = {true}
