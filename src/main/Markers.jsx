@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Map, {Marker, InfoWindow} from 'google-maps-react';
-import Markers from './Markers.jsx'
 import geocoder from 'google-geocoder';
 var geo = geocoder({
   key: 'AIzaSyAC0nJCMaQAZ0lJpLhrpWBsQ25itl5yQqg'
 });
 
-class GoogleMap extends React.Component {
+class Markers extends React.Component {
      constructor(props){
       super(props);
       this.getLocation = this.getLocation.bind(this);
       this.state = {
-        google: "",
-        selectedPlace: "LHL",
-        location: []
+        locations: []
     }
   }
   getLocation(){
@@ -30,52 +27,32 @@ class GoogleMap extends React.Component {
           };
           // process response object
           locations.push(object)
-          console.log(object)
         });
-      if(locations.length === that.props.data.length){
-      that.setState({location: locations})
-      }
+      that.setState({locations: locations})
     })
   }
-  shouldComponentUpdate(nextProps,nextState) {
-    if(this.state.location !== nextState.location) {
-      return true;
-    }
-    return false;
-  }
   componentDidMount(){
+   this.getLocation();
   }
-
   render() {
-    console.log(this.props.location, 'hello')
-    var location = this.props.location;
-    return (
-      <div>
-      <Map
-        containerStyle = {{
-          position: 'relative',
-          width: '60vw',
-          height: '100vh'
-        }}
-        classname ={'map'}
-        google={window.google}
-        zoom={14}
-        centerAroundCurrentLocation = {true}>
-        {location.map((object, index) => {
-          console.log(object, 'test');
-          return (
-          <Marker
+   var data = this.state.locations;
+      return (
+        <div>
+          {data.map(function(object, i){
+            console.log(object)
+            return(
+
+              <Marker
               google={window.google}
               key = {object.id}
               name = {object.title}
               postition= {{lat: object.lat, lng: object.lng}}
               />
-            );
-        })}
-      </Map>
+              )
+          })}
         </div>
     );
   }
 }
 
-export default GoogleMap;
+export default Markers;
