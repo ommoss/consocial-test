@@ -30,7 +30,7 @@ import Button from 'react-bootstrap/lib/Button';
           container={this}
         >
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">All the details</Modal.Title>
+            <Modal.Title id="contained-modal-title">Sign up here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p>{this.props.data}</p>
