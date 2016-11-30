@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return Promise.all([
 
         knex.schema.createTable('users', function(table) {
-            table.integer('uid').primary();
+            table.integer('uid')
             table.string('username');
             table.string('password');
             table.string('first_name');
@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
             table.timestamps();
         }),
         knex.schema.createTable('games', function(table){
-            table.integer('gid').primary();
+            table.integer('gid')
             table.string('name');
             table.string('description');
             table.timestamps();
@@ -23,12 +23,12 @@ exports.up = function(knex, Promise) {
             table.string('title');
             table.string('body');
             table.boolean('private');
-            table.integer('author_id')
-                 .references('uid')
-                 .inTable('users');
-            table.integer('game_id')
-                  .references('gid')
-                  .inTable('games');
+            // table.integer('author_id')
+            //      .references('uid')
+            //      .inTable('users');
+            // table.integer('game_id')
+            //       .references('gid')
+            //       .inTable('games');
             table.integer('max');
             table.integer('current');
             table.string('location');

@@ -7,7 +7,10 @@ import FindTournament from './main/FindTournament.jsx';
 import GoogleMap from './main/GoogleMap.jsx';
 import Footer from './footer/Footer.jsx';
 import TournamentDisplay from './main/Tournamentdisplay.jsx';
-
+import geocoder from 'google-geocoder';
+var geo = geocoder({
+  key: 'AIzaSyAC0nJCMaQAZ0lJpLhrpWBsQ25itl5yQqg'
+});
 class App extends React.Component {
     constructor(props){
       super(props);
@@ -21,21 +24,40 @@ class App extends React.Component {
           data: {
             one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome}  />
           },
-          tournaments:[]
+          tournaments:[],
+          location: []
       }
   }
 updateFromDatabase () {
+  var that = this;
   $.ajax({
     method: "post",
     url: "/tournaments",
     dataType: 'json'
 
   }).done((response) => {
-
     this.setState({tournaments: response.test});
-
+     var locations = [];
+    this.state.tournaments.forEach(function(element){
+        geo.find(element.location, function(err, res){
+          var object = {
+            id: element.id,
+            title: element.title,
+            lat: res[0].location.lat,
+            lng: res[0].location.lng
+          };
+          // process response object
+          locations.push(object)
+      if(locations.length === that.state.tournaments.length){
+      that.setState({location: locations})
+      }
+        });
+    })
   });
 }
+  getLocation(){
+
+  }
 
 // displayTournamentObject(){
 //   // console.log(this.state);
@@ -45,7 +67,7 @@ updateFromDatabase () {
 
 findTourn(){
   this.updateFromDatabase();
-  this.setState({data: {one: <FindTournament data = {this.state.tournaments}  />}});
+  this.setState({data: {one: <FindTournament location = {this.state.location} data = {this.state.tournaments} />}});
 }
 
 createTourn(){
@@ -58,6 +80,7 @@ backHome(){
 }
 componentDidMount(){
   this.updateFromDatabase();
+  this.getLocation();
 }
 
    render() {

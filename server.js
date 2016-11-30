@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 const pg = require('pg');
+var bodyParser = require('webpack-body-parser')
 var configPg = {
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER, //env var: PGUSER
@@ -13,7 +14,6 @@ var configPg = {
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 const pool = new pg.Pool(configPg);
-console.log(process.env.DATABASE_PASSWORD)
 function postTournamentData(req, res){
 
    pool.connect(function(err, client, done) {
@@ -36,19 +36,22 @@ function postTournamentData(req, res){
 
 
 
-function inputTournamentData(req,res){
-  console.log(req)
-  // pool.connect(err, client, done) {
-    // if(err){
-    //   return console.error('error fetching client form pool', err);
-    // }
-    // client.query('INSERT INTO tournament (title, body, author_id, game_id, max, current, location, time, date) VALUES ("Namersz", "googd tournament", 1000, 2000, 10, 8, "950 Rockland Ave, Victoria"', function(err, result){
-    //   done();
+function inputTournamentData(data){
+  console.log(data);
+  console.log(data.tournName);
+  var cur = 1;
+  pool.connect(function(err, client, done) {
+    if(err){
+      return console.error('error fetching client form pool', err);
+    }
+    client.query('INSERT INTO tournament (title, body, game_id, max, current, location, time, date) VALUES $1, $2, $3, $4, $5, $6, $7, $8', [data.tournName], [data.extraInfo], [data.tournGame], [data.maxPlayers], [cur], [data.location], [data.tournStart], [data.tournDate], function(err, result){
+      done();
 
-    //   if(err){
-    //     return console.error('error running query', err);
-    //   }
-    // })
+      if(err){
+        return console.error('error running query', err);
+      }
+    })
+  });
 }
 
 
@@ -60,11 +63,19 @@ new WebpackDevServer(webpack(config), {
     // app.get('/some/path', function(req, res) {
     //   res.json({ custom: 'response' });
     // });
+
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }))
+
+    // parse application/json
+    app.use(bodyParser.json())
+
     app.get('/tournaments', function(req, res){
       postTournamentData(req, res);
     })
-    app.get('/tournament', function(req, res){
-      inputTournamentData(req, res);
+
+    app.post('/tournament', function(req, res){
+     inputTournamentData(req.body)
     })
 
   },

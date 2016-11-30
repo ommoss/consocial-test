@@ -9,8 +9,7 @@ class SideBar extends React.Component {
 
 
    render() {
-    var data = this.props.data
-    console.log(data[0].id);
+    var data = this.props.data;
       return (
         <div>
           {data.map(function(object, i){
