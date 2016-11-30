@@ -87,16 +87,16 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="tournName" id="tournName" value={this.state.tournName} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
+                  <input type="text" placeholder="Insert tournament name here" name="tournName" id="tournName" value={this.state.tournName} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
                 <div className="container">
                 <Col  xs={4} md={4}>
-                  <h3>Game Type</h3>
+                  <h3>Game</h3>
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="text" name="tournGame" id="tournGame" value={this.state.tournGame} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
+                  <input type="text" placeholder="What game are you playing?" name="tournGame" id="tournGame" value={this.state.tournGame} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
                 <div className="container">
@@ -114,7 +114,7 @@ handleChange(event){
                 </Col>
 
                 <Col  xs={8} md={8}>
-                  <input type="number" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
+                  <input type="number" placeholder="How many players can you host?" name="maxPlayers" id="maxPlayers" value={this.state.maxPlayers} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                 </Col>
                 </div>
 
@@ -123,7 +123,7 @@ handleChange(event){
                     <h3>Location</h3>
                   </Col>
                   <Col  xs={8} md={8}>
-                    <input type="text" name="location" id="location" value={this.state.location} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="example: 123 Younge St, Toronto" name="location" id="location" value={this.state.location} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></input>
                   </Col>
                 </div>
 
@@ -139,7 +139,7 @@ handleChange(event){
 
                 <div className="container">
                   <Col  xs={4} md={4}>
-                    <h3>Extra Information</h3>
+                    <h3>Description</h3>
                   </Col>
                   <Col  xs={8} md={8}>
                     <textarea rows="4" cols="50" name="extraInfo" id="extraInfo" value={this.state.extraInfo} className="input-lg col-md-12 tourninputs" onChange={this.handleChange}></textarea>
