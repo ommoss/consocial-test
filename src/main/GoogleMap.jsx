@@ -65,10 +65,9 @@ class GoogleMap extends React.Component {
           console.log(object, 'test');
           return (
           <Marker
-              google={window.google}
               key = {object.id}
               name = {object.title}
-              postition= {{lat: object.lat, lng: object.lng}}
+              position={{lat: object.lat, lng: object.lng}}
               />
             );
         })}

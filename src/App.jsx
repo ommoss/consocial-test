@@ -29,6 +29,7 @@ class App extends React.Component {
       }
   }
 updateFromDatabase () {
+  var that = this;
   $.ajax({
     method: "post",
     url: "/tournaments",
@@ -36,12 +37,7 @@ updateFromDatabase () {
 
   }).done((response) => {
     this.setState({tournaments: response.test});
-
-  });
-}
-  getLocation(){
-    var locations = [];
-    var that = this;
+     var locations = [];
     this.state.tournaments.forEach(function(element){
         geo.find(element.location, function(err, res){
           var object = {
@@ -52,12 +48,16 @@ updateFromDatabase () {
           };
           // process response object
           locations.push(object)
-          console.log(object)
-        });
-      if(locations.length === that.props.data.length){
+      if(locations.length === that.state.tournaments.length){
       that.setState({location: locations})
+      console.log(that.state.location, "app")
       }
+        });
     })
+  });
+}
+  getLocation(){
+
   }
 
 // displayTournamentObject(){
