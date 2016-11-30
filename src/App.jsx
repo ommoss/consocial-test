@@ -29,7 +29,7 @@ updateFromDatabase () {
     method: "post",
     url: "/tournaments",
     dataType: 'json'
-1
+
   }).done((response) => {
 
     this.setState({tournaments: response.test});
