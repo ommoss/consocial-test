@@ -37,9 +37,10 @@ exports.seed = function(knex, Promise) {
         knex('tournament').insert({
           title: 'Beat Down',
           body: 'beat your friends up!',
-          private: false,
+          //private: false,
           // author_id: 1000,
           // game_id: 6000,
+          game: 'Super Smash Bros',
           max: 20,
           current: 5,
           location: '2320 Victor St, Victoria',
@@ -47,23 +48,25 @@ exports.seed = function(knex, Promise) {
           date: 'Nov 31st'
         }),
           knex('tournament').insert({
-          title: 'Death Party',
-          body: 'Drink when you die',
-          private: false,
+          title: 'Chinatown Mortal Kombat Death Party',
+          body: 'Come over for a great Mortal Kombat Party.',
+          game: 'Mortal Kombat',
+          //private: false,
           // author_id: 2000,
           // game_id: 6000,
           max: 10,
           current: 8,
-          location: '223 Edenbridge Dr, Toronto',
+          location: '524 Fisgard Ave, Victoria',
           time: '8:00',
           date: 'Dec 5th'
         }),
           knex('tournament').insert({
-          title: 'ath Party',
+          title: 'Mario Party Gathering',
           body: 'You die',
-          private: false,
+          //private: false,
           // author_id: 2000,
           // game_id: 6000,
+          game: 'Mario Party',
           max: 10,
           current: 8,
           location: '223 Goverment St, Victoria',
@@ -71,16 +74,44 @@ exports.seed = function(knex, Promise) {
           date: 'Dec 5th'
         }),
           knex('tournament').insert({
-          title: 'HEARTS',
+          title: 'HEARTS for Mario',
           body: '1234 Pandora St, Victoria',
-          private: false,
+          //private: false,
           // author_id: 1000,
           // game_id: 6000,
+          game: 'MarioKart64',
           max: 10,
           current: 8,
-          location: '777 Government St',
+          location: '777 Government St, Victoria',
           time: '11:00',
           date: 'Dec 11th'
+        }),
+          knex('tournament').insert({
+          title: 'The Mariokart battle for all',
+          body: 'This will be for all the marbles, bring your own beer and its going to be great',
+          //private: false,
+          // author_id: 1000,
+          // game_id: 6000,
+          game: 'MarioKart64',
+
+          max: 10,
+          current: 8,
+          location: '950 Rockland Ave, Victoria',
+          time: '11:00',
+          date: 'Dec 11th'
+        }),
+            knex('tournament').insert({
+          title: 'NHL 94 Superbattle',
+          body: 'Come to my place for an NHL 94 tournament. NO SNACKS PROVIDED. BRING SNACKS. $20 entry fee winner takes all',
+          //private: false,
+          // author_id: 1000,
+          // game_id: 6000,
+          game: 'NHL 94',
+          max: 10,
+          current: 8,
+          location: '1524 Begbie Ave, Victoria',
+          time: '18:00',
+          date: 'Dec 18th'
         })
       ]);
     });
