@@ -33,23 +33,23 @@ function postTournamentData(req, res){
   });
 }
 
-// insert into req body
 
-// function inputTournamentData(req,res){
-//   pool.connect(err, client, done) {
-//     if(err){
-//       return console.error('error fetching client form pool', err);
-//     }
-//     client.query('INSERT INTO tournament (title, body, author_id, game_id, max, current, location, time, date) VALUES ('Namersz', "googd tournament", 1000, 2000, 10, 8, "950 Rockland Ave, Victoria"), function(err, result){
-//       done();
 
-//       if(err){
-//         return console.error('error running query', err);
-//       }
-//       req.json({test: result.rows});
-//     })
-//   }
-// }
+function inputTournamentData(req,res){
+  console.log(req)
+  // pool.connect(err, client, done) {
+    // if(err){
+    //   return console.error('error fetching client form pool', err);
+    // }
+    // client.query('INSERT INTO tournament (title, body, author_id, game_id, max, current, location, time, date) VALUES ("Namersz", "googd tournament", 1000, 2000, 10, 8, "950 Rockland Ave, Victoria"', function(err, result){
+    //   done();
+
+    //   if(err){
+    //     return console.error('error running query', err);
+    //   }
+    // })
+}
+
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
@@ -62,6 +62,10 @@ new WebpackDevServer(webpack(config), {
     app.get('/tournaments', function(req, res){
       postTournamentData(req, res);
     })
+    app.get('/tournament', function(req, res){
+      inputTournamentData(req, res);
+    })
+
   },
     watchOptions: {
       aggregateTimeout: 300,

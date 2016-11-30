@@ -19,9 +19,10 @@ class App extends React.Component {
       this.backHome = this.backHome.bind(this);
       this.updateFromDatabase = this.updateFromDatabase.bind(this);
 
+
       this.state = {
           data: {
-            one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome} />
+            one: <Main findTourn = {this.findTourn} createTourn = {this.createTourn} backHome = {this.backHome}  />
           },
           tournaments:[],
           location: []
@@ -31,8 +32,8 @@ updateFromDatabase () {
   $.ajax({
     method: "post",
     url: "/tournaments",
-    dataType: 'json',
-   // body:
+    dataType: 'json'
+
   }).done((response) => {
     this.setState({tournaments: response.test});
 
@@ -59,6 +60,12 @@ updateFromDatabase () {
     })
   }
 
+// displayTournamentObject(){
+//   // console.log(this.state);
+//   this.setState({tournaments: [this.state]});
+// }
+
+
 findTourn(){
   this.updateFromDatabase();
   this.setState({data: {one: <FindTournament location = {this.state.location} data = {this.state.tournaments} />}});
@@ -66,7 +73,7 @@ findTourn(){
 
 createTourn(){
   this.setState({data: {one: <Tournament />}});
-  this.updateUsers();
+  //this.updateUsers();
 }
 
 backHome(){
