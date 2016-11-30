@@ -15,7 +15,7 @@ class Footer extends React.Component {
 
     return(
      <div id="footer">
-        <h5>Hello footer</h5>
+        <h5>Created by Todd and Big Owen</h5>
       </div>
     );
   }
