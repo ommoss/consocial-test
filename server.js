@@ -36,19 +36,22 @@ function postTournamentData(req, res){
 
 
 
-function inputTournamentData(req){
-  console.log(req)
-  // pool.connect(err, client, done) {
-    // if(err){
-    //   return console.error('error fetching client form pool', err);
-    // }
-    // client.query('INSERT INTO tournament (title, body, author_id, game_id, max, current, location, time, date) VALUES ("Namersz", "googd tournament", 1000, 2000, 10, 8, "950 Rockland Ave, Victoria"', function(err, result){
-    //   done();
+function inputTournamentData(data){
+  console.log(data);
+  console.log(data.tournName);
+  var cur = 1;
+  pool.connect(function(err, client, done) {
+    if(err){
+      return console.error('error fetching client form pool', err);
+    }
+    client.query('INSERT INTO tournament (title, body, game_id, max, current, location, time, date) VALUES $1, $2, $3, $4, $5, $6, $7, $8', [data.tournName], [data.extraInfo], [data.tournGame], [data.maxPlayers], [cur], [data.location], [data.tournStart], [data.tournDate], function(err, result){
+      done();
 
-    //   if(err){
-    //     return console.error('error running query', err);
-    //   }
-    // })
+      if(err){
+        return console.error('error running query', err);
+      }
+    })
+  });
 }
 
 

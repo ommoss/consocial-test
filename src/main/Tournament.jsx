@@ -16,8 +16,9 @@ class Tournament extends React.Component {
       tournStart:"",
       maxPlayers:"",
       location:"",
-      time:"",
-      extraInfo:""
+      tournStart:"",
+      extraInfo:"",
+      tournDate: ""
 
     }
   }
@@ -62,6 +63,10 @@ handleChange(event){
     this.setState({location: event.target.value});
   }else if (event.target.id ==="extraInfo"){
     this.setState({extraInfo: event.target.value});
+  }else if (event.target.id === "tournStart"){
+    this.setState({tournStart: event.target.value})
+  }else if (event.target.id ==="date"){
+    this.setState({tournDate: event.target.value})
   }
 }
 
