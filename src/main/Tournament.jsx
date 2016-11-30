@@ -36,11 +36,13 @@ formCheck(){
 //}
 updateToDatabase(){
   $.ajax({
-    method: "post",
+    type: "POST",
     url: "/tournament",
-    dataType: 'json',
-    data: "booyah"
-  })
+    contentType:"application/json",
+    handleAs:"json",
+    dataType: "json" ,
+    data: JSON.stringify( this.state )
+      })
 }
 
 

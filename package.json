@@ -79,6 +79,7 @@
     "url-loader": "0.5.7",
     "utf-8-validate": "1.2.1",
     "webpack": "1.13.1",
+    "webpack-body-parser": "1.11.110",
     "webpack-dev-server": "^1.14.0",
     "ws": "1.1.1"
   }

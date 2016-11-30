@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 const pg = require('pg');
+var bodyParser = require('webpack-body-parser')
 var configPg = {
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER, //env var: PGUSER
@@ -35,7 +36,7 @@ function postTournamentData(req, res){
 
 
 
-function inputTournamentData(req,res){
+function inputTournamentData(req){
   console.log(req)
   // pool.connect(err, client, done) {
     // if(err){
@@ -59,11 +60,19 @@ new WebpackDevServer(webpack(config), {
     // app.get('/some/path', function(req, res) {
     //   res.json({ custom: 'response' });
     // });
+
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }))
+
+    // parse application/json
+    app.use(bodyParser.json())
+
     app.get('/tournaments', function(req, res){
       postTournamentData(req, res);
     })
-    app.get('/tournament', function(req, res){
-      inputTournamentData(req, res);
+
+    app.post('/tournament', function(req, res){
+     inputTournamentData(req.body)
     })
 
   },

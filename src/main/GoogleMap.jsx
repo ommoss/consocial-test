@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Map, {Marker, InfoWindow} from 'google-maps-react';
-import Markers from './Markers.jsx'
 import geocoder from 'google-geocoder';
 var geo = geocoder({
   key: 'AIzaSyAC0nJCMaQAZ0lJpLhrpWBsQ25itl5yQqg'
