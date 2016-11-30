@@ -9,6 +9,7 @@ class Tournament extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.formCheck = this.formCheck.bind(this);
+    // this.sendObject = this.sendObject.bind(this);
     this.state = {
       tournName:"",
       tournGame:"",
@@ -22,11 +23,28 @@ class Tournament extends React.Component {
   }
 
 formCheck(){
-if(this.state.tournName && this.state.tournGame && this.state.tournStart && this.state.maxPlayers && this.state.location && this.state.extraInfo){
-  alert("good job");
-} else {alert("fill in all forms please")
+  if(this.state.tournName && this.state.tournGame && this.state.tournStart && this.state.maxPlayers && this.state.location && this.state.extraInfo){
+    this.updateToDatabase();
+  } else {alert("fill in all forms please")
+  }
 }
+
+// sendObject(){
+//   // console.log(this.state);
+//   this.props.displayTournamentObject();
+
+//}
+updateToDatabase(){
+  $.ajax({
+    method: "post",
+    url: "/tournament",
+    dataType: 'json',
+    data: "booyah"
+  })
 }
+
+
+
 
 handleChange(event){
   if(event.target.id === "tournName"){
@@ -42,7 +60,7 @@ handleChange(event){
     this.setState({location: event.target.value});
   }else if (event.target.id ==="extraInfo"){
     this.setState({extraInfo: event.target.value});
-  }console.log(this.state)
+  }
 }
 
   render() {
@@ -123,7 +141,7 @@ handleChange(event){
                 </div>
                 <br/>
                  <Col xs={12} md={12}>
-                <button type="submit" className="btn btn-default" onClick={this.formCheck}>Create Tournament</button>
+                <button type="submit" className="btn btn-default" onClick={this.formCheck} >Create Tournament</button>
                  </Col>
 
               </formControl>
