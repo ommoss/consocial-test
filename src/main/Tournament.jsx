@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/lib/Button';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import geocoder from 'google-geocoder';
+var geo = geocoder({
+  key: 'AIzaSyAC0nJCMaQAZ0lJpLhrpWBsQ25itl5yQqg'
+});
 
 class Tournament extends React.Component {
   constructor(props){
@@ -30,11 +34,6 @@ formCheck(){
   }
 }
 
-// sendObject(){
-//   // console.log(this.state);
-//   this.props.displayTournamentObject();
-
-//}
 updateToDatabase(){
   $.ajax({
     type: "POST",

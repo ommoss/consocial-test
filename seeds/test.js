@@ -49,7 +49,6 @@ exports.seed = function(knex, Promise) {
           knex('tournament').insert({
           title: 'Death Party',
           body: 'Drink when you die',
-          private: false,
           // author_id: 2000,
           // game_id: 6000,
           max: 10,

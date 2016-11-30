@@ -22,7 +22,8 @@ exports.up = function(knex, Promise) {
             table.increments('id');
             table.string('title');
             table.string('body');
-            table.boolean('private');
+            table.string('game');
+            // table.boolean('private');
             // table.integer('author_id')
             //      .references('uid')
             //      .inTable('users');

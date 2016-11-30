@@ -44,7 +44,7 @@ function inputTournamentData(data){
     if(err){
       return console.error('error fetching client form pool', err);
     }
-    client.query('INSERT INTO tournament (title, body, game_id, max, current, location, time, date) VALUES $1, $2, $3, $4, $5, $6, $7, $8', [data.tournName], [data.extraInfo], [data.tournGame], [data.maxPlayers], [cur], [data.location], [data.tournStart], [data.tournDate], function(err, result){
+    client.query('INSERT INTO tournament (title, body, game, max, current, location, time, date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [data.tournName, data.extraInfo, data.tournGame, data.maxPlayers, cur, data.location, data.tournStart, data.tournDate], function(err, result){
       done();
 
       if(err){
