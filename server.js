@@ -20,7 +20,7 @@ function postTournamentData(req, res){
     if(err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('SELECT * From tournament', function(err, result) {
+    client.query('SELECT * From tournament ORDER BY id DESC', function(err, result) {
       //call `done()` to release the client back to the pool
       done();
 
