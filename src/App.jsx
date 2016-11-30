@@ -37,7 +37,7 @@ updateFromDatabase () {
 
   }).done((response) => {
     this.setState({tournaments: response.test});
-     var locations = [];
+    var locations = [];
     this.state.tournaments.forEach(function(element){
         geo.find(element.location, function(err, res){
           var object = {
@@ -55,9 +55,9 @@ updateFromDatabase () {
     })
   });
 }
-  getLocation(){
+  // getLocation(){
 
-  }
+  // }
 
 // displayTournamentObject(){
 //   // console.log(this.state);
@@ -80,7 +80,7 @@ backHome(){
 }
 componentDidMount(){
   this.updateFromDatabase();
-  this.getLocation();
+  //this.getLocation();
 }
 
    render() {
