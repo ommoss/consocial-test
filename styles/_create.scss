@@ -1,0 +1,22 @@
+.right-container {
+  background-image: url('/src/assets/videogameparty.jpg');
+  height: 500px;
+  text-align: center;
+  margin:0;
+  padding:0;
+  width: 50%;
+  float: right;
+
+  .create-box {
+    color: #fff;
+    margin-top: 250px;
+    margin-left: 2em;
+    float: left;
+  }
+}
+
+#createTourn {
+  position: relative;
+  background-color: #3a1307;
+  padding: 0px;
+}

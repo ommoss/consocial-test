@@ -1,0 +1,35 @@
+.sideFind {
+  height:800px;
+  overflow: scroll;
+}
+#players{
+  float: right;
+}
+#time{
+  float:left
+}
+#map{
+  overflow: hidden;
+}
+// .sidebar-container {
+//   overflow: hidden;
+
+// }
+
+.well {
+  background-color: #51555b;
+  border: 1px solid black;
+  margin-left: 15px;
+}
+
+#tournament-name {
+  color: #ffa31a;
+}
+
+.tourn-info {
+  color: white;
+}
+
+.well h4 {
+  color: white;
+}

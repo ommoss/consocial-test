@@ -84,19 +84,12 @@ componentDidMount(){
   //this.getLocation();
 }
 
-   render() {
-
-      return (
+  render() {
+    return (
       <div>
-        <div>
-          <Nav backHome={this.backHome} />
-        </div>
-        <div id="maindiv">
-          {this.state.data.one}
-        </div>
-        <div>
-          <Footer />
-        </div>
+        <Nav backHome={this.backHome} />
+        {this.state.data.one}
+        {/*<Footer />*/}
       </div>
     );
   }
