@@ -11,24 +11,15 @@ class Create extends React.Component {
 
   render() {
     return (
-
-      <Col id="createTourn" sm={12} md={12}>
-        <img src={require('../assets/videogameparty.jpg')}/>
-
-        <Col className="inner1div" sm={11} md={11} smOffset={1} mdOffset={1}>
-          <div className="innerdivheadline">
+      <div className="create-box">
+        <div className="create-header">
           <h1><b>Create a tournament</b></h1>
           <h4><b>Host your friends!</b></h4>
-          </div>
-          <h1 className="inner1btn" onClick={this.props.createTourn}>Start Here</h1>
-        </Col>
-      </Col>
+        </div>
+        <Button className="inner1btn" onClick={this.props.createTourn}>Start Here</Button>
+      </div>
     );
   }
 }
 
 export default Create;
-
-
-
-

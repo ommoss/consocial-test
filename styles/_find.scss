@@ -1,0 +1,28 @@
+.left-container {
+  background-image: url('/src/assets/Joystick.jpg');
+  display: inline-block;
+  height: 500px;
+  text-align: center;
+  width: 50%;
+  float: left;
+
+  .find-box {
+    color: #fff;
+    margin-top: 250px;
+    margin-right: 2em;
+    float: right;
+  }
+}
+
+#findtourn {
+  position: relative;
+  background-color: #031b42;
+  padding: 0px;
+}
+
+
+.mapdiv {
+  height: 80%;
+  z-index: 1;
+  // overflow: scroll;
+}

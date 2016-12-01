@@ -1,0 +1,30 @@
+
+#navBar {
+  border-bottom: 1px solid black;
+  background-color:#14181e;
+  height: 75px;
+
+  .brand {
+    color: white;
+    padding: 7px;
+    margin-left: 1em;
+    float: left;
+    font-size: 3em;
+    width: 200px;
+  }
+
+  .nav-buttons {
+    float: right;
+    margin-top: 15px;
+    margin-right: 50px;
+  }
+}
+
+.btn-default:hover {
+  color: white;
+  background-color: #ffa31a;
+  border-color: white;
+}
+.brand:hover{
+  cursor:pointer;
+}
